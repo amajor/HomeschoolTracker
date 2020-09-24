@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/amajor/HomeschoolTracker.svg?branch=master)](https://travis-ci.com/amajor/HomeschoolTracker)
+
 # Homeschool Tracker
 A java application written to demonstrate several Object Oriented Programming design patterns.
 
