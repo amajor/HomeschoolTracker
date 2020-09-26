@@ -43,7 +43,7 @@ public class LessonTest extends TestCase {
     }
 
     public void testToString() {
-        String expectedString = "\n\n  [ ] " + lessonName + "\n      " + lessonDescription;
+        String expectedString = "  [ ] " + lessonName + " - " + lessonDescription;
         assertEquals(expectedString, lesson.toString());
     }
 

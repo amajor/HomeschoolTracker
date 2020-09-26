@@ -55,7 +55,7 @@ public class Lesson {
         if (completed) {
             check = "X";
         }
-        return ("\n\n  [" + check + "] " + name + "\n      " + description);
+        return ("  [" + check + "] " + name + " - " + description);
     }
 
     public void printLessonName() {
