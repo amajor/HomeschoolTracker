@@ -30,6 +30,6 @@ public class Material {
         if (graded) {
             check = "X";
         }
-        return ("\n\n  [" + check + "] " + description);
+        return ("  [" + check + "] " + description);
     }
 }

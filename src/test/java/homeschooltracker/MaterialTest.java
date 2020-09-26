@@ -28,8 +28,8 @@ public class MaterialTest extends TestCase {
     }
 
     public void testToString() {
-        String expected1 = "\n\n  [X] " + description1;
-        String expected2 = "\n\n  [ ] " + description2;
+        String expected1 = "  [X] " + description1;
+        String expected2 = "  [ ] " + description2;
         assertEquals(expected1, material1.toString());
         assertEquals(expected2, material2.toString());
     }

@@ -46,4 +46,14 @@ public class LessonTest extends TestCase {
         String expectedString = "\n\n  [ ] " + lessonName + "\n      " + lessonDescription;
         assertEquals(expectedString, lesson.toString());
     }
+
+    public void testAddMaterial() {
+        String description1 = "Phonics Workbook Page 3";
+        String description2 = "Reading Handbook Page 36";
+        lesson.addMaterial(description1, false);
+        lesson.addMaterial(description2, false);
+
+        assertEquals(description1, lesson.getMaterialArrayList(0).getDescription());
+        assertEquals(description2, lesson.getMaterialArrayList(1).getDescription());
+    }
 }
