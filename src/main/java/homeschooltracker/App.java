@@ -1,13 +1,11 @@
 package homeschooltracker;
 
 import homeschooltracker.content.Lesson;
-import homeschooltracker.content.Subject;
+import homeschooltracker.content.SubjectGrade1Reading2;
 
 public class App {
     public static void main(String[] args) {
-        Subject subject = new Subject(
-                "Phonics & Reading, Grade 1"
-        );
+        SubjectGrade1Reading2 subject = new SubjectGrade1Reading2();
 
         // Build lesson 12
         Lesson lesson = new Lesson(
@@ -26,6 +24,12 @@ public class App {
         // Print from the subject
         subject.printSubjectName();
         subject.printLessonList();
+
+        System.out.print("\n======================\n");
+
+        // Print from the subject's lesson
+        subject.getLessonAtPosition(0).printLessonName();
+        subject.getLessonAtPosition(0).printMaterialList();
 
         System.out.print("\n======================\n");
 
