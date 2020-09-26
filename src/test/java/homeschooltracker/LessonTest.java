@@ -1,10 +1,11 @@
+package homeschooltracker;
+
 import junit.framework.TestCase;
 
 public class LessonTest extends TestCase {
     // Initialize test data
     String lessonName = "MyLesson";
     String lessonDescription = "This is a description of MyLesson";
-    boolean lessonCompleted = false;
 
     Lesson lesson = new Lesson(
             lessonName,
@@ -12,7 +13,7 @@ public class LessonTest extends TestCase {
             false
     );
 
-    public void testTestGetName() {
+    public void testGetName() {
         assertEquals(lessonName, lesson.getName());
     }
 

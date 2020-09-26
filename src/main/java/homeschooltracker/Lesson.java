@@ -1,3 +1,5 @@
+package homeschooltracker;
+
 public class Lesson {
     String name;
     String description;
@@ -33,6 +35,7 @@ public class Lesson {
         completed = true;
     }
 
+    @Override
     public String toString() {
         String check = " ";
         if (completed) {
