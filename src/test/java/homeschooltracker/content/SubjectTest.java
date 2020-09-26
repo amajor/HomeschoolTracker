@@ -4,11 +4,10 @@ import junit.framework.TestCase;
 
 public class SubjectTest extends TestCase {
     // Initialize test data
-    String subjectName = "MySubject";
-    Subject subject = new Subject(subjectName);
+    Subject subject = new Subject();
 
     public void testGetName() {
-        assertEquals(subjectName, subject.getName());
+        assertEquals("Unnamed Subject", subject.getName());
     }
 
     public void testAddLesson() {

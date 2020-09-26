@@ -4,15 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Subject {
-    String name;
+    String name = "Unnamed Subject";
     ArrayList<Lesson> lessonArrayList = new ArrayList<>();
-
-    public Subject(
-            String name
-    )
-    {
-        this.name = name;
-    }
 
     public String getName() {
         return name;
