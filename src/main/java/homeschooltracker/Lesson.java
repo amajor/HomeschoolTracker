@@ -33,7 +33,7 @@ public class Lesson {
         return description;
     }
 
-    public Material getMaterialArrayList(int position) {
+    public Material getMaterialAtPosition(int position) {
         return materialArrayList.get(position);
     }
 

@@ -42,7 +42,7 @@ public class LessonTest extends TestCase {
         assertFalse(lesson.isUnfinished());
     }
 
-    public void testTestToString() {
+    public void testToString() {
         String expectedString = "\n\n  [ ] " + lessonName + "\n      " + lessonDescription;
         assertEquals(expectedString, lesson.toString());
     }
@@ -53,7 +53,7 @@ public class LessonTest extends TestCase {
         lesson.addMaterial(description1, false);
         lesson.addMaterial(description2, false);
 
-        assertEquals(description1, lesson.getMaterialArrayList(0).getDescription());
-        assertEquals(description2, lesson.getMaterialArrayList(1).getDescription());
+        assertEquals(description1, lesson.getMaterialAtPosition(0).getDescription());
+        assertEquals(description2, lesson.getMaterialAtPosition(1).getDescription());
     }
 }
