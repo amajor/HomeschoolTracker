@@ -1,4 +1,4 @@
-package homeschooltracker;
+package homeschooltracker.content;
 
 import junit.framework.TestCase;
 

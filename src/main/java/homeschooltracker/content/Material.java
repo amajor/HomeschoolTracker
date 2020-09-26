@@ -1,4 +1,4 @@
-package homeschooltracker;
+package homeschooltracker.content;
 
 public class Material {
     String description;

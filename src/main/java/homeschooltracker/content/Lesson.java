@@ -1,4 +1,4 @@
-package homeschooltracker;
+package homeschooltracker.content;
 
 import java.util.ArrayList;
 import java.util.Iterator;

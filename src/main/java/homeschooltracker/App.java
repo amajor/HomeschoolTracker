@@ -1,5 +1,8 @@
 package homeschooltracker;
 
+import homeschooltracker.content.Lesson;
+import homeschooltracker.content.Subject;
+
 public class App {
     public static void main(String[] args) {
         Subject subject = new Subject(
