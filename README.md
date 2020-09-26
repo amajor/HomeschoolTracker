@@ -13,14 +13,8 @@ whether or not they have been completed.
 
 Additionally, the application will manage students and which subjects each student has.
 
-## Documents
-
-* [Use Cases](./docs/UseCases.md)
-* [User Personas](https://github.com/amajor/HomeschoolTracker/projects/1)
-* [User Stories](./docs/UserStories.md)
-* [Structure Ideas](./docs/Structure)
-
-## Planning & Development
+## Planning, Development, & Documentatino
 The java code will reside in this repository.
 
 * [Kanban Board](https://github.com/amajor/HomeschoolTracker/projects/2)
+* [Project Wiki](https://github.com/amajor/HomeschoolTracker/wiki)
