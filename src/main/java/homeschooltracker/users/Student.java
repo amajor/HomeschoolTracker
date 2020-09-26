@@ -17,6 +17,10 @@ public class Student {
         return name;
     }
 
+    public void addSubject(Subject subject) {
+        subjectArrayList.add(subject);
+    }
+
     public void printName() {
         System.out.println("\nStudent: " + getName());
     }
