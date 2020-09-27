@@ -47,12 +47,31 @@ public class Student {
 
         // Displaying the values after iterating through the list
         if (iterator.hasNext()) {
-            System.out.println("  Subjects with Lessons: ");
+            System.out.println("  Subjects with Lessons:");
         }
         while (iterator.hasNext()) {
             Subject current = iterator.next();
             System.out.println("    " + current);
             current.printLessonList();
+        }
+    }
+
+    public void printSubjectListWithLessonsAtPosition(int position) {
+        // Create an iterator for the list using iterator() method
+        Iterator<Subject> iterator = subjectArrayList.iterator();
+
+        // Displaying the values after iterating through the list
+        if (iterator.hasNext()) {
+            System.out.println("  Subjects with Lesson at position " + position + ":");
+        }
+        while (iterator.hasNext()) {
+            Subject current = iterator.next();
+            System.out.println("    " + current);
+            try {
+                System.out.println("    " + current.getLessonAtPosition(position));
+            } catch(Exception e) {
+                System.out.println("      No lesson at position " + position + " for this subject.");
+            }
         }
     }
 }

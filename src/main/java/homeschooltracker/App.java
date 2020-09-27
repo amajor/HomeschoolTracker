@@ -42,9 +42,7 @@ public class App {
         // Print Information
         parent.printName();
         student.printName();
-        student.printSubjectListWithLessons();
-//        Subject studentSubject1 = student.getSubjectAtPosition(0);
-//        studentSubject1.printSubjectName();
-//        studentSubject1.printLessonList();
+        student.printSubjectListWithLessonsAtPosition(0);
+        student.printSubjectListWithLessonsAtPosition(1);
     }
 }
