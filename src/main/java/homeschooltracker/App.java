@@ -3,12 +3,18 @@ package homeschooltracker;
 import homeschooltracker.content.Lesson;
 import homeschooltracker.content.Subject;
 import homeschooltracker.content.SubjectGrade1Reading2;
+import homeschooltracker.users.Parent;
 import homeschooltracker.users.Student;
 
 public class App {
     public static void main(String[] args) {
+        Parent parent = new Parent("Anya");
         Student student = new Student("Eustace");
         SubjectGrade1Reading2 subject = new SubjectGrade1Reading2();
+
+        // Add Student to Parent
+        parent.addStudent(student);
+        parent.printName();
 
         // Add Subject to Student
         student.addSubject(subject);
