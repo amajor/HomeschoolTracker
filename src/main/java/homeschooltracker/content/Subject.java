@@ -3,8 +3,8 @@ package homeschooltracker.content;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Subject {
-    String name = "Unnamed Subject";
+abstract public class Subject {
+    public String name;
     ArrayList<Lesson> lessonArrayList = new ArrayList<>();
 
     public String getName() {

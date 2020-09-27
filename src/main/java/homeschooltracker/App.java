@@ -2,7 +2,7 @@ package homeschooltracker;
 
 import homeschooltracker.content.Lesson;
 import homeschooltracker.content.Subject;
-import homeschooltracker.content.SubjectGrade1Reading2;
+import homeschooltracker.content.SubjectFactory;
 import homeschooltracker.users.Parent;
 import homeschooltracker.users.Student;
 
@@ -10,7 +10,10 @@ public class App {
     public static void main(String[] args) {
         Parent parent = new Parent("Anya");
         Student student = new Student("Eustace");
-        SubjectGrade1Reading2 subject = new SubjectGrade1Reading2();
+
+        // Create the subjects using the Factory
+        SubjectFactory subjectFactory = new SubjectFactory();
+        Subject subject = subjectFactory.getSubject("READING1A");
 
         // Add Student to Parent
         parent.addStudent(student);

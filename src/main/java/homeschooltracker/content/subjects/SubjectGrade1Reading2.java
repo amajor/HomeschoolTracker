@@ -1,4 +1,7 @@
-package homeschooltracker.content;
+package homeschooltracker.content.subjects;
+
+import homeschooltracker.content.Lesson;
+import homeschooltracker.content.Subject;
 
 public class SubjectGrade1Reading2 extends Subject {
     public SubjectGrade1Reading2() {

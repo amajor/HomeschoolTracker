@@ -1,7 +1,5 @@
 package homeschooltracker.users;
 
-import homeschooltracker.content.Subject;
-import homeschooltracker.content.SubjectGrade1Reading2;
 import junit.framework.TestCase;
 
 public class ParentTest extends TestCase {
