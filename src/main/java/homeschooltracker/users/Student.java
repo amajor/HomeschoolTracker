@@ -21,6 +21,10 @@ public class Student {
         subjectArrayList.add(subject);
     }
 
+    public Subject getSubjectAtPosition(int position) {
+        return subjectArrayList.get(position);
+    }
+
     public void printName() {
         System.out.println("\nStudent: " + getName());
     }
