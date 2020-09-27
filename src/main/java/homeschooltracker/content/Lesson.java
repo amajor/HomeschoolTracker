@@ -68,10 +68,10 @@ public class Lesson {
 
         // Displaying the values after iterating through the list
         if (iterator.hasNext()) {
-            System.out.println("  Materials: ");
+            System.out.println("        Materials: ");
         }
         while (iterator.hasNext()) {
-            System.out.println("  " + iterator.next());
+            System.out.println("        " + iterator.next());
         }
     }
 }

@@ -56,7 +56,7 @@ public class Student {
         }
     }
 
-    public void printSubjectListWithLessonsAtPosition(int position) {
+    public void printSubjectListWithLessonsAtPosition(int position, boolean showMaterials) {
         // Create an iterator for the list using iterator() method
         Iterator<Subject> iterator = subjectArrayList.iterator();
 
@@ -69,6 +69,9 @@ public class Student {
             System.out.println("    " + current);
             try {
                 System.out.println("    " + current.getLessonAtPosition(position));
+                if(showMaterials) {
+                    current.getLessonAtPosition(position).printMaterialList();
+                }
             } catch(Exception e) {
                 System.out.println("      No lesson at position " + position + " for this subject.");
             }
