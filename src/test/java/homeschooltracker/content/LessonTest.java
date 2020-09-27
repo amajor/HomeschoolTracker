@@ -1,10 +1,11 @@
+package homeschooltracker.content;
+
 import junit.framework.TestCase;
 
 public class LessonTest extends TestCase {
     // Initialize test data
     String lessonName = "MyLesson";
     String lessonDescription = "This is a description of MyLesson";
-    boolean lessonCompleted = false;
 
     Lesson lesson = new Lesson(
             lessonName,
@@ -12,7 +13,7 @@ public class LessonTest extends TestCase {
             false
     );
 
-    public void testTestGetName() {
+    public void testGetName() {
         assertEquals(lessonName, lesson.getName());
     }
 
@@ -41,8 +42,18 @@ public class LessonTest extends TestCase {
         assertFalse(lesson.isUnfinished());
     }
 
-    public void testTestToString() {
-        String expectedString = "\n\n  [ ] " + lessonName + "\n      " + lessonDescription;
+    public void testToString() {
+        String expectedString = "  [ ] " + lessonName + " - " + lessonDescription;
         assertEquals(expectedString, lesson.toString());
+    }
+
+    public void testAddMaterial() {
+        String description1 = "Phonics Workbook Page 3";
+        String description2 = "Reading Handbook Page 36";
+        lesson.addMaterial(description1, false);
+        lesson.addMaterial(description2, false);
+
+        assertEquals(description1, lesson.getMaterialAtPosition(0).getDescription());
+        assertEquals(description2, lesson.getMaterialAtPosition(1).getDescription());
     }
 }
