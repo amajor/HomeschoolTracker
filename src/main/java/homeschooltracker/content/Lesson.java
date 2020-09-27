@@ -67,7 +67,9 @@ public class Lesson {
         Iterator<Material> iterator = materialArrayList.iterator();
 
         // Displaying the values after iterating through the list
-        System.out.println("  Materials: ");
+        if (iterator.hasNext()) {
+            System.out.println("  Materials: ");
+        }
         while (iterator.hasNext()) {
             System.out.println("  " + iterator.next());
         }

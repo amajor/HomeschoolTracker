@@ -3,6 +3,7 @@ package homeschooltracker.users;
 import homeschooltracker.content.Subject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Student {
     String name;
@@ -27,5 +28,31 @@ public class Student {
 
     public void printName() {
         System.out.println("\nStudent: " + getName());
+    }
+
+    public void printSubjectList() {
+        // Create an iterator for the list using iterator() method
+        Iterator<Subject> iterator = subjectArrayList.iterator();
+
+        // Displaying the values after iterating through the list
+        System.out.println("  Subjects: ");
+        while (iterator.hasNext()) {
+            System.out.println("    " + iterator.next());
+        }
+    }
+
+    public void printSubjectListWithLessons() {
+        // Create an iterator for the list using iterator() method
+        Iterator<Subject> iterator = subjectArrayList.iterator();
+
+        // Displaying the values after iterating through the list
+        if (iterator.hasNext()) {
+            System.out.println("  Subjects with Lessons: ");
+        }
+        while (iterator.hasNext()) {
+            Subject current = iterator.next();
+            System.out.println("    " + current);
+            current.printLessonList();
+        }
     }
 }

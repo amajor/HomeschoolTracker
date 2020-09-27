@@ -10,7 +10,7 @@ public class Bible extends Subject {
         // Build Lesson 16
         Lesson lesson16 = new Lesson(
                 "Lesson 16",
-                "Memorization: Genesis 1:1-5\nLesson: Cumulative Review",
+                "Memorization: Genesis 1:1-5",
                 false
         );
 

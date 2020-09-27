@@ -10,7 +10,7 @@ public class PhonicsLanguage extends Subject {
         // Build Lesson 16
         Lesson lesson16 = new Lesson(
                 "Lesson 16",
-                "Memorization: John 3:14-19\nLesson: Cumulative Review",
+                "Memorization: John 3:14-19",
                 false
         );
 

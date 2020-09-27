@@ -33,9 +33,13 @@ abstract public class Subject {
         Iterator<Lesson> iterator = lessonArrayList.iterator();
 
         // Displaying the values after iterating through the list
-        System.out.println("  Lessons: ");
         while (iterator.hasNext()) {
-            System.out.println("  " + iterator.next());
+            System.out.println("    " + iterator.next());
         }
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
