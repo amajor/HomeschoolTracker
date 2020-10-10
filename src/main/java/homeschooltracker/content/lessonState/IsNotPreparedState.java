@@ -10,7 +10,7 @@ public class IsNotPreparedState implements State {
     }
 
     @Override
-    public String stateDescription() {
+    public String getStateDescription() {
         return ("Materials have not been prepared for this lesson.");
     }
 }

@@ -10,7 +10,7 @@ public class NoMaterialsState implements State {
     }
 
     @Override
-    public String stateDescription() {
+    public String getStateDescription() {
         return ("This lesson does not have any materials.");
     }
 }

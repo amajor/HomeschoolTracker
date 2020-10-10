@@ -10,7 +10,7 @@ public class IsCompletedState implements State {
     }
 
     @Override
-    public String stateDescription() {
+    public String getStateDescription() {
         return ("The materials for this lesson have been completed by the student.");
     }
 }

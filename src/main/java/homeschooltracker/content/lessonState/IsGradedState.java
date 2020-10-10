@@ -10,7 +10,7 @@ public class IsGradedState implements State {
     }
 
     @Override
-    public String stateDescription() {
+    public String getStateDescription() {
         return ("All materials have been graded for this lesson.");
     }
 }

@@ -10,7 +10,7 @@ public class IsPreparedState implements State {
     }
 
     @Override
-    public String stateDescription() {
+    public String getStateDescription() {
         return ("Materials have been prepared for this lesson.");
     }
 }

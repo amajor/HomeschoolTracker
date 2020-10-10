@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Lesson {
-    State isPreparedState;
     State noMaterialsState;
+    State isNotPreparedState;
+    State isPreparedState;
     State isCompletedState;
     State isGradedState;
-    State isNotPreparedState;
 
     State state;
 
@@ -103,7 +103,7 @@ public class Lesson {
     }
 
     public String getStateDescription() {
-        return state.stateDescription();
+        return state.getStateDescription();
     }
 
     public void printState() {
