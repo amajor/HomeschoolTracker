@@ -70,6 +70,7 @@ public class Student {
             try {
                 System.out.println("    " + current.getLessonAtPosition(position));
                 if(showMaterials) {
+                    current.getLessonAtPosition(position).printState();
                     current.getLessonAtPosition(position).printMaterialList();
                 }
             } catch(Exception e) {
