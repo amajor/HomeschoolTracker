@@ -1,9 +1,19 @@
 package homeschooltracker.content;
 
+import homeschooltracker.content.lessonState.*;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Lesson {
+    State isPreparedState;
+    State noMaterialsState;
+    State isCompletedState;
+    State isGradedState;
+    State isNotPreparedState;
+
+    State state;
+
     String name;
     String description;
     boolean completed;
@@ -15,6 +25,18 @@ public class Lesson {
             boolean completed
     )
     {
+        noMaterialsState = new NoMaterialsState(this);
+        isNotPreparedState = new IsNotPreparedState(this);
+        isPreparedState = new IsPreparedState(this);
+        isCompletedState = new IsCompletedState(this);
+        isGradedState = new IsGradedState(this);
+
+
+        if (materialArrayList.isEmpty()) {
+            state = noMaterialsState;
+        } else {
+            state = isPreparedState;
+        }
         this.name = name;
         this.description = description;
         this.completed = completed;
@@ -23,6 +45,7 @@ public class Lesson {
     public void addMaterial(String description, Boolean graded) {
         Material material = new Material(description, graded);
         materialArrayList.add(material);
+        setState(isNotPreparedState);
     }
 
     public String getName() {
@@ -67,9 +90,23 @@ public class Lesson {
         Iterator<Material> iterator = materialArrayList.iterator();
 
         // Displaying the values after iterating through the list
-        System.out.println("  Materials: ");
-        while (iterator.hasNext()) {
-            System.out.println("  " + iterator.next());
+        if (iterator.hasNext()) {
+            System.out.println("        Materials: ");
         }
+        while (iterator.hasNext()) {
+            System.out.println("        " + iterator.next());
+        }
+    }
+
+    void setState(State state) {
+        this.state = state;
+    }
+
+    public String getStateDescription() {
+        return state.stateDescription();
+    }
+
+    public void printState() {
+        System.out.println(getStateDescription());
     }
 }
