@@ -18,6 +18,6 @@ public class Material extends Task {
     }
 
     public void print() {
-        System.out.print("\nMaterial: " + getName());
+        System.out.print("  " + toString() + "\n");
     }
 }

@@ -2,6 +2,7 @@ package homeschooltracker;
 
 import homeschooltracker.content.Subject;
 import homeschooltracker.content.SubjectFactory;
+import homeschooltracker.content.Task;
 import homeschooltracker.users.Parent;
 import homeschooltracker.users.Student;
 
@@ -24,33 +25,39 @@ public class App {
         Subject subject9 = subjectFactory.getSubject("ACTIVITY1");
 
         // Add Student to Parent
-        parent.addStudent(student);
+        parent.add(student);
 
         // Add Subject to Student
-        student.addSubject(subject0);
-        student.addSubject(subject1);
-        student.addSubject(subject2);
-        student.addSubject(subject3);
-        student.addSubject(subject4);
-        student.addSubject(subject5);
-        student.addSubject(subject6);
-        student.addSubject(subject7);
-        student.addSubject(subject8);
-        student.addSubject(subject9);
+        student.add(subject0);
+        student.add(subject1);
+        student.add(subject2);
+        student.add(subject3);
+        student.add(subject4);
+        student.add(subject5);
+        student.add(subject6);
+        student.add(subject7);
+        student.add(subject8);
+        student.add(subject9);
 
         // Grade a Lesson
-        student.getSubjectAtPosition(0).getChild(0).setGraded();
+        student.getChild(0).getChild(0).setGraded();
 
         // Complete a Lesson
-        student.getSubjectAtPosition(1).getChild(0).setCompleted();
+        student.getChild(1).getChild(0).setCompleted();
 
         // Prepare a Lesson
-        student.getSubjectAtPosition(2).getChild(0).setPrepared();
+        student.getChild(2).getChild(0).setPrepared();
 
-        // Print Information
-        parent.printName();
-        student.printName();
-        student.printSubjectListWithLessonsAtPosition(0, true);
-        student.printSubjectListWithLessonsAtPosition(1, false);
+        // ***** Print Information *****
+
+        // Print Parent
+        parent.print();
+
+        // Print Child
+        Student myStudent = parent.getChild(0);
+        myStudent.print();
+
+        // Print Child's Tasks
+        myStudent.printTasks();
     }
 }

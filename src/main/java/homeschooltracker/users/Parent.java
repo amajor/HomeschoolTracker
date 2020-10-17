@@ -15,15 +15,15 @@ public class Parent {
         return name;
     }
 
-    public void addStudent(Student student) {
+    public void add(Student student) {
         studentArrayList.add(student);
     }
 
-    public Student getStudentAtPosition(int position) {
+    public Student getChild(int position) {
         return studentArrayList.get(position);
     }
 
-    public void printName() {
+    public void print() {
         System.out.println("\nParent: " + getName());
     }
 }

@@ -85,6 +85,6 @@ public abstract class Task {
     }
 
     public void print() {
-        throw new UnsupportedOperationException();
+        System.out.println(this.toString());
     }
 }

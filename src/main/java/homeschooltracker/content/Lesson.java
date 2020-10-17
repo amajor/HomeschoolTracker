@@ -20,10 +20,12 @@ public class Lesson extends Task {
     }
 
     public void print() {
-        System.out.print("\nLESSON: " + getName());
-        System.out.println("---------------------");
+        System.out.println(toString());
 
         Iterator<Task> iterator = taskArrayList.iterator();
+        if(iterator.hasNext()) {
+            System.out.println("\n    MATERIALS:");
+        }
         while (iterator.hasNext()) {
             Task task = iterator.next();
             task.print();
