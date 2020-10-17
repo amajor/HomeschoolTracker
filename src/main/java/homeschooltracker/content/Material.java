@@ -16,4 +16,8 @@ public class Material extends Task {
         state = isNotPreparedState;
         this.name = name;
     }
+
+    public void print() {
+        System.out.print("\nMaterial: " + getName());
+    }
 }

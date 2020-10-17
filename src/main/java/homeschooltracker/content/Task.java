@@ -2,8 +2,11 @@ package homeschooltracker.content;
 
 import homeschooltracker.content.taskState.State;
 
+import java.util.ArrayList;
+
 public abstract class Task {
-    String name;
+    public String name;
+    public ArrayList<Task> taskArrayList = new ArrayList<>();
 
     State isNotPreparedState;
     State currentToPrepareState;
@@ -15,15 +18,18 @@ public abstract class Task {
     State state;
 
     public void add(Task task) {
-        throw new UnsupportedOperationException();
+        taskArrayList.add(task);
     }
 
     public void remove(Task task) {
         throw new UnsupportedOperationException();
     }
 
-    public Task getChild(int i) {
-        throw new UnsupportedOperationException();
+    public Task getChild(int position) {
+        if(taskArrayList.size() == 0) {
+            throw new UnsupportedOperationException();
+        }
+        return taskArrayList.get(position);
     }
 
     public String getName() {
@@ -62,14 +68,6 @@ public abstract class Task {
         return state.getStateDescription();
     }
 
-    public void printState() {
-        System.out.println(getStateDescription());
-    }
-
-    public void printChildren() {
-        System.out.println(getStateDescription());
-    }
-
     public String toString() {
         String prepared = " ";
         String completed = " ";
@@ -84,5 +82,9 @@ public abstract class Task {
             graded = "X";
         }
         return ("  [" + prepared + "][" + completed + "][" + graded + "] " + getName());
+    }
+
+    public void print() {
+        throw new UnsupportedOperationException();
     }
 }

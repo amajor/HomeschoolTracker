@@ -2,16 +2,10 @@ package homeschooltracker.content;
 
 import homeschooltracker.content.taskState.*;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Lesson extends Task {
-    String name;
-    ArrayList<Task> materialArrayList = new ArrayList<>();
-
-    public Lesson(
-        String name
-    )
+    public Lesson(String name)
     {
         isNotPreparedState = new IsNotPreparedState(this);
         currentToPrepareState = new CurrentToPrepareState(this);
@@ -22,33 +16,17 @@ public class Lesson extends Task {
 
         // Set default state
         state = isNotPreparedState;
-
         this.name = name;
     }
 
-    public void add(Task material) {
-        materialArrayList.add(material);
-        // setState(isNotPreparedState);
-    }
+    public void print() {
+        System.out.print("\nLESSON: " + getName());
+        System.out.println("---------------------");
 
-    public String getName() {
-        return name;
-    }
-
-    public Task getChild(int position) {
-        return materialArrayList.get(position);
-    }
-
-    public void printChildren() {
-        // Create an iterator for the list using iterator() method
-        Iterator<Task> iterator = materialArrayList.iterator();
-
-        // Displaying the values after iterating through the list
-        if (iterator.hasNext()) {
-            System.out.println("        Materials: ");
-        }
+        Iterator<Task> iterator = taskArrayList.iterator();
         while (iterator.hasNext()) {
-            System.out.println("        " + iterator.next());
+            Task task = iterator.next();
+            task.print();
         }
     }
 }

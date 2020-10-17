@@ -1,6 +1,7 @@
 package homeschooltracker.users;
 
 import homeschooltracker.content.Subject;
+import homeschooltracker.content.Task;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -52,7 +53,7 @@ public class Student {
         while (iterator.hasNext()) {
             Subject current = iterator.next();
             System.out.println("    " + current);
-            current.printChildren();
+            current.print();
         }
     }
 
@@ -65,13 +66,16 @@ public class Student {
             System.out.println("  Subjects with Lesson at position " + position + ":");
         }
         while (iterator.hasNext()) {
-            Subject current = iterator.next();
-            System.out.println("    " + current);
+            Subject currentSubject = iterator.next();
+            System.out.println("    SUBJECT: " + currentSubject);
             try {
-                System.out.println("    " + current.getChild(position));
+                Task lesson = currentSubject.getChild(position);
+                System.out.println("    LESSON:" + lesson);
                 if(showMaterials) {
-                    current.getChild(position).printState();
-                    current.getChild(position).printChildren();
+                    System.out.println("\n=== LESSON: " + lesson.getName() + " ===");
+                    System.out.println("    LESSON STATE:" + lesson.getStateDescription());
+                    System.out.println("    LESSON MATERIALS:");
+                    currentSubject.getChild(position).print();
                 }
             } catch(Exception e) {
                 System.out.println("      No lesson at position " + position + " for this subject.");

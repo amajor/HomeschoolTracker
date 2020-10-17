@@ -11,7 +11,7 @@ public class IsGradedState implements State {
 
     @Override
     public String getStateDescription() {
-        return ("The task has been graded.");
+        return ("The task\"" + task.getName() + "\" has been graded.");
     }
 
     @Override

@@ -11,7 +11,7 @@ public class CurrentToPrepareState implements State {
 
     @Override
     public String getStateDescription() {
-        return ("This task is being prepared by the parent.");
+        return ("This task \"" + task.getName() + "\" is being prepared by the parent.");
     }
 
     @Override

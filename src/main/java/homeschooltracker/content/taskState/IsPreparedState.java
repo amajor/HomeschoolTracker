@@ -11,7 +11,7 @@ public class IsPreparedState implements State {
 
     @Override
     public String getStateDescription() {
-        return ("The task has been prepared.");
+        return ("The task \"" + task.getName() + "\" has been prepared.");
     }
 
     @Override

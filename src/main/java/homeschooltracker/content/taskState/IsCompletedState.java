@@ -11,7 +11,7 @@ public class IsCompletedState implements State {
 
     @Override
     public String getStateDescription() {
-        return ("The task has been completed by the student.");
+        return ("The task \"" + task.getName() + "\" has been completed by the student.");
     }
 
     @Override

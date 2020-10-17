@@ -11,7 +11,7 @@ public class IsNotPreparedState implements State {
 
     @Override
     public String getStateDescription() {
-        return ("The task has not been prepared.");
+        return ("The task \"" + task.getName() + "\" has not been prepared.");
     }
 
     @Override

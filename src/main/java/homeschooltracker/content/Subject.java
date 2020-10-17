@@ -1,35 +1,16 @@
 package homeschooltracker.content;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 abstract public class Subject extends Task {
-    public String name;
-    ArrayList<Task> lessonArrayList = new ArrayList<>();
+    public void print() {
+        System.out.print("\nSUBJECT: " + getName());
+        System.out.println("---------------------");
 
-    public String getName() {
-        return name;
-    }
-
-    public void add(Task lesson) {
-        lessonArrayList.add(lesson);
-    }
-
-    public Task getChild(int position) {
-        return lessonArrayList.get(position);
-    }
-
-    public void printSubjectName() {
-        System.out.println("\nSubject: " + getName());
-    }
-
-    public void printChildren() {
-        // Create an iterator for the list using iterator() method
-        Iterator<Task> iterator = lessonArrayList.iterator();
-
-        // Displaying the values after iterating through the list
+        Iterator<Task> iterator = taskArrayList.iterator();
         while (iterator.hasNext()) {
-            System.out.println("    " + iterator.next());
+            Task task = iterator.next();
+            task.print();
         }
     }
 

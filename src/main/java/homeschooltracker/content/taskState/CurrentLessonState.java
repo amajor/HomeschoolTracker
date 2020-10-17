@@ -11,7 +11,7 @@ public class CurrentLessonState implements State {
 
     @Override
     public String getStateDescription() {
-        return ("This task is in progress by the student.");
+        return ("This task \"" + task.getName() + "\" is in progress by the student.");
     }
 
     @Override
