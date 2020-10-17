@@ -11,8 +11,8 @@ public class MaterialTest extends TestCase {
     Material material2 = new Material(description2);
 
     public void testGetDescription() {
-        assertEquals(description1, material1.getDescription());
-        assertEquals(description2, material2.getDescription());
+        assertEquals(description1, material1.getName());
+        assertEquals(description2, material2.getName());
     }
 
     public void testPrepared() {

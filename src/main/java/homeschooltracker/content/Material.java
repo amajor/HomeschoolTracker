@@ -3,9 +3,7 @@ package homeschooltracker.content;
 import homeschooltracker.content.taskState.*;
 
 public class Material extends Task {
-    String description;
-
-    public Material(String description)
+    public Material(String name)
     {
         isNotPreparedState = new IsNotPreparedState(this);
         currentToPrepareState = new CurrentToPrepareState(this);
@@ -16,11 +14,7 @@ public class Material extends Task {
 
         // Set default state
         state = isNotPreparedState;
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
+        this.name = name;
     }
 
     @Override
@@ -37,6 +31,6 @@ public class Material extends Task {
         if (isGraded()) {
             graded = "X";
         }
-        return ("  [" + prepared + "][" + completed + "][" + graded + "] " + description);
+        return ("  [" + prepared + "][" + completed + "][" + graded + "] " + name);
     }
 }

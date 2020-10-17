@@ -11,8 +11,8 @@ public class Lesson extends Task {
     ArrayList<Material> materialArrayList = new ArrayList<>();
 
     public Lesson(
-            String name,
-            String description
+        String name,
+        String description
     )
     {
         isNotPreparedState = new IsNotPreparedState(this);
@@ -34,15 +34,11 @@ public class Lesson extends Task {
         // setState(isNotPreparedState);
     }
 
-    public String getName() {
-        return name;
-    }
-
     public String getDescription() {
         return description;
     }
 
-    public Material getMaterialAtPosition(int position) {
+    public Task getChild(int position) {
         return materialArrayList.get(position);
     }
 

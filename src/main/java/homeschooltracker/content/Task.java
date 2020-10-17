@@ -3,7 +3,7 @@ package homeschooltracker.content;
 import homeschooltracker.content.taskState.State;
 
 public abstract class Task {
-    String name = null;
+    String name;
 
     State isNotPreparedState;
     State currentToPrepareState;
