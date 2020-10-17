@@ -3,6 +3,7 @@ package homeschooltracker.content;
 import homeschooltracker.content.taskState.State;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class Task {
     public String name;
@@ -46,6 +47,13 @@ public abstract class Task {
 
     public void setPrepared() {
         setState(isPreparedState);
+
+        // Set any children to the same state as the parent!
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            task.setState(isPreparedState);
+        }
     }
 
     public boolean isCompleted() {
@@ -54,6 +62,13 @@ public abstract class Task {
 
     public void setCompleted() {
         setState(isCompletedState);
+
+        // Set any children to the same state as the parent!
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            task.setState(isCompletedState);
+        }
     }
 
     public boolean isGraded() {
@@ -62,6 +77,13 @@ public abstract class Task {
 
     public void setGraded() {
         setState(isGradedState);
+
+        // Set any children to the same state as the parent!
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            task.setState(isGradedState);
+        }
     }
 
     public String getStateDescription() {
