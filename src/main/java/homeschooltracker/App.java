@@ -39,13 +39,13 @@ public class App {
         student.addSubject(subject9);
 
         // Grade a Lesson
-        student.getSubjectAtPosition(0).getLessonAtPosition(0).setGraded();
+        student.getSubjectAtPosition(0).getChild(0).setGraded();
 
         // Complete a Lesson
-        student.getSubjectAtPosition(1).getLessonAtPosition(0).setCompleted();
+        student.getSubjectAtPosition(1).getChild(0).setCompleted();
 
         // Prepare a Lesson
-        student.getSubjectAtPosition(2).getLessonAtPosition(0).setPrepared();
+        student.getSubjectAtPosition(2).getChild(0).setPrepared();
 
         // Print Information
         parent.printName();

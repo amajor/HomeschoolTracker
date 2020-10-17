@@ -9,10 +9,7 @@ public class Arithmetic extends Subject {
         name = "Arithmetic, Grade 1";
 
         // Build Lesson 16
-        Lesson lesson16 = new Lesson(
-                "Lesson 16",
-                ""
-        );
+        Lesson lesson16 = new Lesson("Lesson 16");
 
         // Add Materials for Lesson 16
         Material task1 = new Material("Objects for counting");
@@ -28,6 +25,6 @@ public class Arithmetic extends Subject {
         lesson16.add(task4);
 
         // Add lesson to this subject.
-        this.addLesson(lesson16);
+        this.add(lesson16);
     }
 }

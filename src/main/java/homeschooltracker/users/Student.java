@@ -52,7 +52,7 @@ public class Student {
         while (iterator.hasNext()) {
             Subject current = iterator.next();
             System.out.println("    " + current);
-            current.printLessonList();
+            current.printChildren();
         }
     }
 
@@ -68,10 +68,10 @@ public class Student {
             Subject current = iterator.next();
             System.out.println("    " + current);
             try {
-                System.out.println("    " + current.getLessonAtPosition(position));
+                System.out.println("    " + current.getChild(position));
                 if(showMaterials) {
-                    current.getLessonAtPosition(position).printState();
-                    current.getLessonAtPosition(position).printMaterialList();
+                    current.getChild(position).printState();
+                    current.getChild(position).printChildren();
                 }
             } catch(Exception e) {
                 System.out.println("      No lesson at position " + position + " for this subject.");

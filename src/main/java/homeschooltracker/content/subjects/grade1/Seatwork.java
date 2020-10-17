@@ -9,10 +9,7 @@ public class Seatwork extends Subject {
         name = "Seatwork, Grade 1";
 
         // Build Lesson 16
-        Lesson lesson16 = new Lesson(
-            "Seatwork 16",
-            "See material list. Save Bible Friends (page 9-16) for booklet in Lesson 19."
-        );
+        Lesson lesson16 = new Lesson("Seatwork 16");
 
         // Add Materials for Lesson 16
         Material task1 = new Material("Arithmetic 1, Page 31");
@@ -31,6 +28,6 @@ public class Seatwork extends Subject {
         lesson16.add(task7);
 
         // Add lesson to this subject.
-        this.addLesson(lesson16);
+        this.add(lesson16);
     }
 }

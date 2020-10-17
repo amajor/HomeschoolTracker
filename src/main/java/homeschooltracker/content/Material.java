@@ -16,21 +16,4 @@ public class Material extends Task {
         state = isNotPreparedState;
         this.name = name;
     }
-
-    @Override
-    public String toString() {
-        String prepared = " ";
-        String completed = " ";
-        String graded = " ";
-        if (isPrepared()) {
-            prepared = "X";
-        }
-        if (isCompleted()) {
-            completed = "X";
-        }
-        if (isGraded()) {
-            graded = "X";
-        }
-        return ("  [" + prepared + "][" + completed + "][" + graded + "] " + name);
-    }
 }

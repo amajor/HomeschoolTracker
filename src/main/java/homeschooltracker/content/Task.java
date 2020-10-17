@@ -65,4 +65,24 @@ public abstract class Task {
     public void printState() {
         System.out.println(getStateDescription());
     }
+
+    public void printChildren() {
+        System.out.println(getStateDescription());
+    }
+
+    public String toString() {
+        String prepared = " ";
+        String completed = " ";
+        String graded = " ";
+        if (isPrepared()) {
+            prepared = "X";
+        }
+        if (isCompleted()) {
+            completed = "X";
+        }
+        if (isGraded()) {
+            graded = "X";
+        }
+        return ("  [" + prepared + "][" + completed + "][" + graded + "] " + getName());
+    }
 }

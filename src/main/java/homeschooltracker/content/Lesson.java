@@ -7,12 +7,10 @@ import java.util.Iterator;
 
 public class Lesson extends Task {
     String name;
-    String description;
     ArrayList<Task> materialArrayList = new ArrayList<>();
 
     public Lesson(
-        String name,
-        String description
+        String name
     )
     {
         isNotPreparedState = new IsNotPreparedState(this);
@@ -26,7 +24,6 @@ public class Lesson extends Task {
         state = isNotPreparedState;
 
         this.name = name;
-        this.description = description;
     }
 
     public void add(Task material) {
@@ -38,32 +35,11 @@ public class Lesson extends Task {
         return name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public Task getChild(int position) {
         return materialArrayList.get(position);
     }
 
-    @Override
-    public String toString() {
-        String prepared = " ";
-        String completed = " ";
-        String graded = " ";
-        if (isPrepared()) {
-            prepared = "X";
-        }
-        if (isCompleted()) {
-            completed = "X";
-        }
-        if (isGraded()) {
-            graded = "X";
-        }
-        return ("  [" + prepared + "][" + completed + "][" + graded + "] " + name + " - " + description);
-    }
-
-    public void printMaterialList() {
+    public void printChildren() {
         // Create an iterator for the list using iterator() method
         Iterator<Task> iterator = materialArrayList.iterator();
 

@@ -9,16 +9,13 @@ public class Writing extends Subject {
         name = "Writing, Grade 1";
 
         // Build Lesson 16
-        Lesson lesson16 = new Lesson(
-                "Lesson 16",
-                "Writing..."
-        );
+        Lesson lesson16 = new Lesson("Lesson 16"        );
 
         // Add Materials for Lesson 16
         Material task = new Material("Writing Tablet page");
         lesson16.add(task);
 
         // Add lesson to this subject.
-        this.addLesson(lesson16);
+        this.add(lesson16);
     }
 }

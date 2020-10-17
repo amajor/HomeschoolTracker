@@ -5,16 +5,11 @@ import junit.framework.TestCase;
 public class LessonTest extends TestCase {
     // Initialize test data
     String lessonName = "MyLesson";
-    String lessonDescription = "This is a description of MyLesson";
 
-    Lesson lesson = new Lesson(lessonName, lessonDescription);
+    Lesson lesson = new Lesson(lessonName);
 
     public void testGetName() {
         assertEquals(lessonName, lesson.getName());
-    }
-
-    public void testGetDescription() {
-        assertEquals(lessonDescription, lesson.getDescription());
     }
 
     public void testIsPrepared() {
@@ -75,7 +70,7 @@ public class LessonTest extends TestCase {
     }
 
     public void testToString() {
-        String expectedString = "  [ ][ ][ ] " + lessonName + " - " + lessonDescription;
+        String expectedString = "  [ ][ ][ ] " + lessonName;
         assertEquals(expectedString, lesson.toString());
     }
 

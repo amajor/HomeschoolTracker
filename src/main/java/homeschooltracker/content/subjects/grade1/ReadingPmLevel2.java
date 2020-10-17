@@ -9,10 +9,7 @@ public class ReadingPmLevel2 extends Subject {
         name = "Reading PM 2, Grade 1";
 
         // Build Lesson 16
-        Lesson lesson16 = new Lesson(
-            "Lesson 16",
-            "This is lesson 16 for Grade 1, Reading level 2."
-        );
+        Lesson lesson16 = new Lesson("Lesson 16");
 
         // Add Materials for Lesson 16
         Material task1 = new Material("Handbook for Reading");
@@ -23,6 +20,6 @@ public class ReadingPmLevel2 extends Subject {
         lesson16.add(task3);
 
         // Add lesson to this subject.
-        this.addLesson(lesson16);
+        this.add(lesson16);
     }
 }

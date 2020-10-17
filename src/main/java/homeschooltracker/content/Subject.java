@@ -3,24 +3,19 @@ package homeschooltracker.content;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-abstract public class Subject {
+abstract public class Subject extends Task {
     public String name;
-    ArrayList<Lesson> lessonArrayList = new ArrayList<>();
+    ArrayList<Task> lessonArrayList = new ArrayList<>();
 
     public String getName() {
         return name;
     }
 
-    public void addLesson(String name, String description, boolean prepared, boolean completed, boolean graded) {
-        Lesson lesson = new Lesson(name, description);
+    public void add(Task lesson) {
         lessonArrayList.add(lesson);
     }
 
-    public void addLesson(Lesson lesson) {
-        lessonArrayList.add(lesson);
-    }
-
-    public Lesson getLessonAtPosition(int position) {
+    public Task getChild(int position) {
         return lessonArrayList.get(position);
     }
 
@@ -28,9 +23,9 @@ abstract public class Subject {
         System.out.println("\nSubject: " + getName());
     }
 
-    public void printLessonList() {
+    public void printChildren() {
         // Create an iterator for the list using iterator() method
-        Iterator<Lesson> iterator = lessonArrayList.iterator();
+        Iterator<Task> iterator = lessonArrayList.iterator();
 
         // Displaying the values after iterating through the list
         while (iterator.hasNext()) {
