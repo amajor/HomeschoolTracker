@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Lesson {
-    State noMaterialsState;
     State isNotPreparedState;
+    State currentToPrepareState;
     State isPreparedState;
+    State currentLessonState;
     State isCompletedState;
     State isGradedState;
 
@@ -25,18 +26,15 @@ public class Lesson {
             boolean completed
     )
     {
-        noMaterialsState = new NoMaterialsState(this);
         isNotPreparedState = new IsNotPreparedState(this);
+        currentToPrepareState = new CurrentToPrepareState(this);
         isPreparedState = new IsPreparedState(this);
+        currentLessonState = new CurrentLessonState(this);
         isCompletedState = new IsCompletedState(this);
         isGradedState = new IsGradedState(this);
 
+        state = isNotPreparedState;
 
-        if (materialArrayList.isEmpty()) {
-            state = noMaterialsState;
-        } else {
-            state = isPreparedState;
-        }
         this.name = name;
         this.description = description;
         this.completed = completed;
