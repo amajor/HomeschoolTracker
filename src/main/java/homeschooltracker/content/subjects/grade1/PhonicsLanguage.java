@@ -11,6 +11,8 @@ public class PhonicsLanguage extends Subject {
         Lesson lesson16 = new Lesson(
                 "Lesson 16",
                 "Memorization: John 3:14-19",
+                false,
+                false,
                 false
         );
 

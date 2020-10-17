@@ -11,6 +11,8 @@ public class Combination extends Subject {
         Lesson lesson16 = new Lesson(
                 "Lesson 16",
                 "Combinations...",
+                false,
+                false,
                 false
         );
 

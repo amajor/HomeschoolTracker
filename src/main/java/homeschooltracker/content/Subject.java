@@ -11,8 +11,8 @@ abstract public class Subject {
         return name;
     }
 
-    public void addLesson(String name, String description, Boolean completed) {
-        Lesson lesson = new Lesson(name, description, completed);
+    public void addLesson(String name, String description, boolean prepared, boolean completed, boolean graded) {
+        Lesson lesson = new Lesson(name, description, prepared, completed, graded);
         lessonArrayList.add(lesson);
     }
 

@@ -39,6 +39,15 @@ public class App {
         student.addSubject(subject8);
         student.addSubject(subject9);
 
+        // Grade a Lesson
+        student.getSubjectAtPosition(0).getLessonAtPosition(0).setGraded();
+
+        // Complete a Lesson
+        student.getSubjectAtPosition(1).getLessonAtPosition(0).setCompleted();
+
+        // Prepare a Lesson
+        student.getSubjectAtPosition(2).getLessonAtPosition(0).setPrepared();
+
         // Print Information
         parent.printName();
         student.printName();

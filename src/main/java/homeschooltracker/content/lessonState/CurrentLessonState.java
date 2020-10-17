@@ -23,4 +23,19 @@ public class CurrentLessonState implements State {
     public boolean showInStudentList() {
         return true;
     }
+
+    @Override
+    public boolean isPrepared() {
+        return true;
+    }
+
+    @Override
+    public boolean isCompleted() {
+        return false;
+    }
+
+    @Override
+    public boolean isGraded() {
+        return false;
+    }
 }

@@ -11,6 +11,8 @@ public class ActivityTime extends Subject {
         Lesson lesson16 = new Lesson(
                 "Lesson 16",
                 "Social Studies",
+                false,
+                false,
                 false
         );
 

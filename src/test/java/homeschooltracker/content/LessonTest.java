@@ -10,6 +10,8 @@ public class LessonTest extends TestCase {
     Lesson lesson = new Lesson(
             lessonName,
             lessonDescription,
+            false,
+            false,
             false
     );
 
@@ -21,29 +23,65 @@ public class LessonTest extends TestCase {
         assertEquals(lessonDescription, lesson.getDescription());
     }
 
+    public void testIsPrepared() {
+        assertFalse(lesson.isPrepared());
+    }
+
     public void testIsCompleted() {
         assertFalse(lesson.isCompleted());
     }
 
-    public void testIsUnfinished() {
-        assertTrue(lesson.isUnfinished());
+    public void testIsGraded() {
+        assertFalse(lesson.isGraded());
+    }
+
+    public void testMarkPrepared() {
+        // Confirm we're started with what we think
+        assertFalse(lesson.isPrepared());
+        assertFalse(lesson.isCompleted());
+        assertFalse(lesson.isGraded());
+
+        // Run the method
+        lesson.setPrepared();
+
+        // Test that it worked
+        assertTrue(lesson.isPrepared());
+        assertFalse(lesson.isCompleted());
+        assertFalse(lesson.isGraded());
     }
 
     public void testMarkCompleted() {
         // Confirm we're started with what we think
+        assertFalse(lesson.isPrepared());
         assertFalse(lesson.isCompleted());
-        assertTrue(lesson.isUnfinished());
+        assertFalse(lesson.isGraded());
 
         // Run the method
-        lesson.markCompleted();
+        lesson.setCompleted();
 
         // Test that it worked
+        assertTrue(lesson.isPrepared());
         assertTrue(lesson.isCompleted());
-        assertFalse(lesson.isUnfinished());
+        assertFalse(lesson.isGraded());
+    }
+
+    public void testMarkGraded() {
+        // Confirm we're started with what we think
+        assertFalse(lesson.isPrepared());
+        assertFalse(lesson.isCompleted());
+        assertFalse(lesson.isGraded());
+
+        // Run the method
+        lesson.setGraded();
+
+        // Test that it worked
+        assertTrue(lesson.isPrepared());
+        assertTrue(lesson.isCompleted());
+        assertTrue(lesson.isGraded());
     }
 
     public void testToString() {
-        String expectedString = "  [ ] " + lessonName + " - " + lessonDescription;
+        String expectedString = "  [ ][ ][ ] " + lessonName + " - " + lessonDescription;
         assertEquals(expectedString, lesson.toString());
     }
 

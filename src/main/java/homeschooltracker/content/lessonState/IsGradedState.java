@@ -23,4 +23,19 @@ public class IsGradedState implements State {
     public boolean showInStudentList() {
         return false;
     }
+
+    @Override
+    public boolean isPrepared() {
+        return true;
+    }
+
+    @Override
+    public boolean isCompleted() {
+        return true;
+    }
+
+    @Override
+    public boolean isGraded() {
+        return true;
+    }
 }

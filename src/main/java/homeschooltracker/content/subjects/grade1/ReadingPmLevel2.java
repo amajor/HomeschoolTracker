@@ -11,6 +11,8 @@ public class ReadingPmLevel2 extends Subject {
         Lesson lesson16 = new Lesson(
                 "Lesson 16",
                 "This is lesson 16 for Grade 1, Reading level 2.",
+                false,
+                false,
                 false
         );
 

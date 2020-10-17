@@ -11,6 +11,8 @@ public class Writing extends Subject {
         Lesson lesson16 = new Lesson(
                 "Lesson 16",
                 "Writing...",
+                false,
+                false,
                 false
         );
 

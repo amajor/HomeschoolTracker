@@ -17,13 +17,14 @@ public class Lesson {
 
     String name;
     String description;
-    boolean completed;
     ArrayList<Material> materialArrayList = new ArrayList<>();
 
     public Lesson(
             String name,
             String description,
-            boolean completed
+            boolean prepared,
+            boolean completed,
+            boolean graded
     )
     {
         isNotPreparedState = new IsNotPreparedState(this);
@@ -37,7 +38,6 @@ public class Lesson {
 
         this.name = name;
         this.description = description;
-        this.completed = completed;
     }
 
     public void addMaterial(String description, Boolean graded) {
@@ -58,25 +58,45 @@ public class Lesson {
         return materialArrayList.get(position);
     }
 
+    public boolean isPrepared() {
+        return state.isPrepared();
+    }
+
+    public void setPrepared() {
+        setState(isPreparedState);
+    }
+
     public boolean isCompleted() {
-        return completed;
+        return state.isCompleted();
     }
 
-    public boolean isUnfinished() {
-        return !completed;
+    public void setCompleted() {
+        setState(isCompletedState);
     }
 
-    public void markCompleted() {
-        completed = true;
+    public boolean isGraded() {
+        return state.isGraded();
+    }
+
+    public void setGraded() {
+        setState(isGradedState);
     }
 
     @Override
     public String toString() {
-        String check = " ";
-        if (completed) {
-            check = "X";
+        String prepared = " ";
+        String completed = " ";
+        String graded = " ";
+        if (isPrepared()) {
+            prepared = "X";
         }
-        return ("  [" + check + "] " + name + " - " + description);
+        if (isCompleted()) {
+            completed = "X";
+        }
+        if (isGraded()) {
+            graded = "X";
+        }
+        return ("  [" + prepared + "][" + completed + "][" + graded + "] " + name + " - " + description);
     }
 
     public void printLessonName() {

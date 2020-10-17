@@ -11,6 +11,8 @@ public class SpellingPoetry extends Subject {
         Lesson lesson16 = new Lesson(
                 "Lesson 16",
                 "Spelling and poetry...",
+                false,
+                false,
                 false
         );
 

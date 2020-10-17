@@ -23,4 +23,19 @@ public class CurrentToPrepareState implements State {
     public boolean showInStudentList() {
         return false;
     }
+
+    @Override
+    public boolean isPrepared() {
+        return false;
+    }
+
+    @Override
+    public boolean isCompleted() {
+        return false;
+    }
+
+    @Override
+    public boolean isGraded() {
+        return false;
+    }
 }

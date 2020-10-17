@@ -11,6 +11,8 @@ public class Seatwork extends Subject {
         Lesson lesson16 = new Lesson(
                 "Seatwork 16",
                 "See material list. Save Bible Friends (page 9-16) for booklet in Lesson 19.",
+                false,
+                false,
                 false
         );
 
