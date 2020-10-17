@@ -10,10 +10,7 @@ public class Bible extends Subject {
         // Build Lesson 16
         Lesson lesson16 = new Lesson(
                 "Lesson 16",
-                "Memorization: John 3:14-19",
-                false,
-                false,
-                false
+                "Memorization: John 3:14-19"
         );
 
         // Add lesson to this subject.

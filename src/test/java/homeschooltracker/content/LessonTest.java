@@ -7,13 +7,7 @@ public class LessonTest extends TestCase {
     String lessonName = "MyLesson";
     String lessonDescription = "This is a description of MyLesson";
 
-    Lesson lesson = new Lesson(
-            lessonName,
-            lessonDescription,
-            false,
-            false,
-            false
-    );
+    Lesson lesson = new Lesson(lessonName, lessonDescription);
 
     public void testGetName() {
         assertEquals(lessonName, lesson.getName());
@@ -85,11 +79,13 @@ public class LessonTest extends TestCase {
         assertEquals(expectedString, lesson.toString());
     }
 
-    public void testAddMaterial() {
+    public void testAdd() {
         String description1 = "Phonics Workbook Page 3";
         String description2 = "Reading Handbook Page 36";
-        lesson.addMaterial(description1, false);
-        lesson.addMaterial(description2, false);
+        Material task1 = new Material(description1);
+        Material task2 = new Material(description2);
+        lesson.add(task1);
+        lesson.add(task2);
 
         assertEquals(description1, lesson.getMaterialAtPosition(0).getDescription());
         assertEquals(description2, lesson.getMaterialAtPosition(1).getDescription());

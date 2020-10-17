@@ -10,10 +10,7 @@ public class ActivityTime extends Subject {
         // Build Lesson 16
         Lesson lesson16 = new Lesson(
                 "Lesson 16",
-                "Social Studies",
-                false,
-                false,
-                false
+                "Social Studies"
         );
 
         // Add lesson to this subject.

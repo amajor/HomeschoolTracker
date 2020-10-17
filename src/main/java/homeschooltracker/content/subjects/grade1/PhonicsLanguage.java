@@ -1,6 +1,7 @@
 package homeschooltracker.content.subjects.grade1;
 
 import homeschooltracker.content.Lesson;
+import homeschooltracker.content.Material;
 import homeschooltracker.content.Subject;
 
 public class PhonicsLanguage extends Subject {
@@ -10,14 +11,12 @@ public class PhonicsLanguage extends Subject {
         // Build Lesson 16
         Lesson lesson16 = new Lesson(
                 "Lesson 16",
-                "Memorization: John 3:14-19",
-                false,
-                false,
-                false
+                "Memorization: John 3:14-19"
         );
 
         // Add Materials for Lesson 16
-        lesson16.addMaterial("Mini Sheet / Scrap Paper", false);
+        Material task = new Material("Mini Sheet / Scrap Paper");
+        lesson16.add(task);
 
         // Add lesson to this subject.
         this.addLesson(lesson16);

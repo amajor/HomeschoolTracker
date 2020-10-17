@@ -1,6 +1,7 @@
 package homeschooltracker.content.subjects.grade1;
 
 import homeschooltracker.content.Lesson;
+import homeschooltracker.content.Material;
 import homeschooltracker.content.Subject;
 
 public class ReadingAmLevel2 extends Subject {
@@ -10,15 +11,14 @@ public class ReadingAmLevel2 extends Subject {
         // Build Lesson 16
         Lesson lesson16 = new Lesson(
                 "Lesson 16",
-                "This is lesson 16 for Grade 1, Reading level 2.",
-                false,
-                false,
-                false
+                "This is lesson 16 for Grade 1, Reading level 2."
         );
 
         // Add Materials for Lesson 16
-        lesson16.addMaterial("Fun with Pets", false);
-        lesson16.addMaterial("Read 'Fun with Pets' p28-33 to parent.", false);
+        Material task1 = new Material("Fun with Pets");
+        lesson16.add(task1);
+        Material task2 = new Material("Read 'Fun with Pets' p28-33 to parent.");
+        lesson16.add(task2);
 
         // Add lesson to this subject.
         this.addLesson(lesson16);

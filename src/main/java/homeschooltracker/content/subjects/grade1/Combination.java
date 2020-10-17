@@ -9,11 +9,8 @@ public class Combination extends Subject {
 
         // Build Lesson 16
         Lesson lesson16 = new Lesson(
-                "Lesson 16",
-                "Combinations...",
-                false,
-                false,
-                false
+            "Lesson 16",
+            "Combinations..."
         );
 
         // Add lesson to this subject.

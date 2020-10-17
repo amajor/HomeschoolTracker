@@ -12,7 +12,7 @@ abstract public class Subject {
     }
 
     public void addLesson(String name, String description, boolean prepared, boolean completed, boolean graded) {
-        Lesson lesson = new Lesson(name, description, prepared, completed, graded);
+        Lesson lesson = new Lesson(name, description);
         lessonArrayList.add(lesson);
     }
 

@@ -1,6 +1,5 @@
 package homeschooltracker;
 
-import homeschooltracker.content.Lesson;
 import homeschooltracker.content.Subject;
 import homeschooltracker.content.SubjectFactory;
 import homeschooltracker.users.Parent;
