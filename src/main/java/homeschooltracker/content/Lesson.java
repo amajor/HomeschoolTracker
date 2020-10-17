@@ -8,7 +8,7 @@ import java.util.Iterator;
 public class Lesson extends Task {
     String name;
     String description;
-    ArrayList<Material> materialArrayList = new ArrayList<>();
+    ArrayList<Task> materialArrayList = new ArrayList<>();
 
     public Lesson(
         String name,
@@ -29,9 +29,13 @@ public class Lesson extends Task {
         this.description = description;
     }
 
-    public void add(Material task) {
-        materialArrayList.add(task);
+    public void add(Task material) {
+        materialArrayList.add(material);
         // setState(isNotPreparedState);
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getDescription() {
@@ -61,7 +65,7 @@ public class Lesson extends Task {
 
     public void printMaterialList() {
         // Create an iterator for the list using iterator() method
-        Iterator<Material> iterator = materialArrayList.iterator();
+        Iterator<Task> iterator = materialArrayList.iterator();
 
         // Displaying the values after iterating through the list
         if (iterator.hasNext()) {
