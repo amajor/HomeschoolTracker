@@ -1,22 +1,22 @@
-package homeschooltracker.content.lessonState;
+package homeschooltracker.content.taskState;
 
-import homeschooltracker.content.Lesson;
+import homeschooltracker.content.Task;
 
-public class IsGradedState implements State {
-    private final Lesson lesson;
+public class IsCompletedState implements State {
+    private final Task task;
 
-    public IsGradedState(Lesson lesson) {
-        this.lesson = lesson;
+    public IsCompletedState(Task task) {
+        this.task = task;
     }
 
     @Override
     public String getStateDescription() {
-        return ("All materials have been graded for this lesson.");
+        return ("The task has been completed by the student.");
     }
 
     @Override
     public boolean showInParentList() {
-        return false;
+        return true;
     }
 
     @Override
@@ -36,6 +36,6 @@ public class IsGradedState implements State {
 
     @Override
     public boolean isGraded() {
-        return true;
+        return false;
     }
 }

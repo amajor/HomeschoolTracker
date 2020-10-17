@@ -1,30 +1,18 @@
 package homeschooltracker.content;
 
-import homeschooltracker.content.lessonState.*;
+import homeschooltracker.content.taskState.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Lesson {
-    State isNotPreparedState;
-    State currentToPrepareState;
-    State isPreparedState;
-    State currentLessonState;
-    State isCompletedState;
-    State isGradedState;
-
-    State state;
-
+public class Lesson extends Task {
     String name;
     String description;
     ArrayList<Material> materialArrayList = new ArrayList<>();
 
     public Lesson(
             String name,
-            String description,
-            boolean prepared,
-            boolean completed,
-            boolean graded
+            String description
     )
     {
         isNotPreparedState = new IsNotPreparedState(this);
@@ -34,16 +22,16 @@ public class Lesson {
         isCompletedState = new IsCompletedState(this);
         isGradedState = new IsGradedState(this);
 
+        // Set default state
         state = isNotPreparedState;
 
         this.name = name;
         this.description = description;
     }
 
-    public void addMaterial(String description, Boolean graded) {
-        Material material = new Material(description, graded);
-        materialArrayList.add(material);
-        setState(isNotPreparedState);
+    public void add(Material task) {
+        materialArrayList.add(task);
+        // setState(isNotPreparedState);
     }
 
     public String getName() {
@@ -56,30 +44,6 @@ public class Lesson {
 
     public Material getMaterialAtPosition(int position) {
         return materialArrayList.get(position);
-    }
-
-    public boolean isPrepared() {
-        return state.isPrepared();
-    }
-
-    public void setPrepared() {
-        setState(isPreparedState);
-    }
-
-    public boolean isCompleted() {
-        return state.isCompleted();
-    }
-
-    public void setCompleted() {
-        setState(isCompletedState);
-    }
-
-    public boolean isGraded() {
-        return state.isGraded();
-    }
-
-    public void setGraded() {
-        setState(isGradedState);
     }
 
     @Override
@@ -99,10 +63,6 @@ public class Lesson {
         return ("  [" + prepared + "][" + completed + "][" + graded + "] " + name + " - " + description);
     }
 
-    public void printLessonName() {
-        System.out.println("\nLesson: " + getName());
-    }
-
     public void printMaterialList() {
         // Create an iterator for the list using iterator() method
         Iterator<Material> iterator = materialArrayList.iterator();
@@ -114,17 +74,5 @@ public class Lesson {
         while (iterator.hasNext()) {
             System.out.println("        " + iterator.next());
         }
-    }
-
-    void setState(State state) {
-        this.state = state;
-    }
-
-    public String getStateDescription() {
-        return state.getStateDescription();
-    }
-
-    public void printState() {
-        System.out.println(getStateDescription());
     }
 }

@@ -1,27 +1,27 @@
-package homeschooltracker.content.lessonState;
+package homeschooltracker.content.taskState;
 
-import homeschooltracker.content.Lesson;
+import homeschooltracker.content.Task;
 
-public class IsCompletedState implements State {
-    private final Lesson lesson;
+public class CurrentLessonState implements State {
+    private final Task task;
 
-    public IsCompletedState(Lesson lesson) {
-        this.lesson = lesson;
+    public CurrentLessonState(Task task) {
+        this.task = task;
     }
 
     @Override
     public String getStateDescription() {
-        return ("The materials for this lesson have been completed by the student.");
+        return ("This task is in progress by the student.");
     }
 
     @Override
     public boolean showInParentList() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean showInStudentList() {
-        return false;
+        return true;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class IsCompletedState implements State {
 
     @Override
     public boolean isCompleted() {
-        return true;
+        return false;
     }
 
     @Override

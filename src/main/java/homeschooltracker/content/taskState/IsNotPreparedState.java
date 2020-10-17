@@ -1,17 +1,17 @@
-package homeschooltracker.content.lessonState;
+package homeschooltracker.content.taskState;
 
-import homeschooltracker.content.Lesson;
+import homeschooltracker.content.Task;
 
-public class IsPreparedState implements State {
-    private final Lesson lesson;
+public class IsNotPreparedState implements State {
+    private final Task task;
 
-    public IsPreparedState(Lesson lesson) {
-        this.lesson = lesson;
+    public IsNotPreparedState(Task task) {
+        this.task = task;
     }
 
     @Override
     public String getStateDescription() {
-        return ("Materials have been prepared for this lesson.");
+        return ("The task has not been prepared.");
     }
 
     @Override
@@ -26,7 +26,7 @@ public class IsPreparedState implements State {
 
     @Override
     public boolean isPrepared() {
-        return true;
+        return false;
     }
 
     @Override

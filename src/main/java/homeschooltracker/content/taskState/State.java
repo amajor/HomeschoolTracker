@@ -1,4 +1,4 @@
-package homeschooltracker.content.lessonState;
+package homeschooltracker.content.taskState;
 
 public interface State {
     public String getStateDescription();
