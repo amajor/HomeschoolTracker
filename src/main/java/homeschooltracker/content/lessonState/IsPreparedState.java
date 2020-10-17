@@ -13,4 +13,14 @@ public class IsPreparedState implements State {
     public String getStateDescription() {
         return ("Materials have been prepared for this lesson.");
     }
+
+    @Override
+    public boolean showInParentList() {
+        return false;
+    }
+
+    @Override
+    public boolean showInStudentList() {
+        return false;
+    }
 }

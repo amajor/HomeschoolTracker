@@ -13,4 +13,14 @@ public class IsCompletedState implements State {
     public String getStateDescription() {
         return ("The materials for this lesson have been completed by the student.");
     }
+
+    @Override
+    public boolean showInParentList() {
+        return true;
+    }
+
+    @Override
+    public boolean showInStudentList() {
+        return false;
+    }
 }

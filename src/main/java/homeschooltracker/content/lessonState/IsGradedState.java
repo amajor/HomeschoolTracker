@@ -13,4 +13,14 @@ public class IsGradedState implements State {
     public String getStateDescription() {
         return ("All materials have been graded for this lesson.");
     }
+
+    @Override
+    public boolean showInParentList() {
+        return false;
+    }
+
+    @Override
+    public boolean showInStudentList() {
+        return false;
+    }
 }

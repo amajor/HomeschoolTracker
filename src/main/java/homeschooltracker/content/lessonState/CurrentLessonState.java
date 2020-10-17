@@ -13,4 +13,14 @@ public class CurrentLessonState implements State {
     public String getStateDescription() {
         return ("This lesson is in progress by the student.");
     }
+
+    @Override
+    public boolean showInParentList() {
+        return false;
+    }
+
+    @Override
+    public boolean showInStudentList() {
+        return true;
+    }
 }
