@@ -1,7 +1,5 @@
 package homeschooltracker.content;
 
-import homeschooltracker.content.taskState.*;
-
 import java.util.Iterator;
 
 public class Lesson extends Task {
@@ -14,6 +12,22 @@ public class Lesson extends Task {
 
     public String getName() {
         return "LESSON: " + name;
+    }
+
+    public void setChildPrepared(int position) {
+        getChild(position).setPrepared();
+        Iterator<Task> iterator = taskArrayList.iterator();
+        int numberPrepared = 0;
+        while (iterator.hasNext()) {
+            Task material = iterator.next();
+            if(material.isPrepared()) {
+                numberPrepared = numberPrepared + 1;
+            }
+        }
+        if(numberPrepared == taskArrayList.size()) {
+            // All the tasks are prepared; set the lesson to prepared as well!
+            setState(isPreparedState);
+        }
     }
 
     public void print() {

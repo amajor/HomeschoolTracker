@@ -40,27 +40,51 @@ public class App {
         student.add(subject9);
 
         // Grade a Lesson
-        student.getChild(0).getChild(0).setGraded();
+        Task bibleLesson = student.getChild(0).getChild(0);
+        System.out.println("Set Bible lesson as GRADED. " + bibleLesson.getName());
+        bibleLesson.setGraded();
 
         // Complete a Lesson
-        student.getChild(1).getChild(0).setCompleted();
+        Task seatworkLesson = student.getChild(1).getChild(0);
+        System.out.println("Set seatwork lesson as COMPLETED. " + seatworkLesson.getName());
+        seatworkLesson.setCompleted();
 
         // Prepare a Lesson
-        student.getChild(2).getChild(0).setPrepared();
+        Task readingLesson = student.getChild(2).getChild(0);
+        System.out.println("Set reading lesson as PREPARED. " + readingLesson.getName());
+        readingLesson.setPrepared();
+
+        // Prepare a Lesson
+        Task phonicsLesson = student.getChild(3).getChild(0);
+        System.out.println("Set phonics lesson as PREPARED. " + phonicsLesson.getName());
+        phonicsLesson.setPrepared();
+
+        // Prepare parts of a Lesson
+        Task writingLesson = student.getChild(4).getChild(0);
+        writingLesson.setReadyToPrepare();
+        System.out.println("Set some writing materials as PREPARED. " + writingLesson.getName());
+        writingLesson.setChildPrepared(0);
+        writingLesson.setChildPrepared(1);
+        System.out.println("... Writing State: " + writingLesson.getStateDescription());
 
         // ***** Print Information *****
 
-//        // Print Parent
-//        parent.print();
-//
-//        // Print Child
-//        Student myStudent = parent.getChild(0);
-//        myStudent.print();
-//
-//        // Print Child's Tasks
-//        myStudent.printTasks();
+        // Print Parent
+        parent.print();
 
-        // Print Todo Lists
+        // Print Child
+        Student myStudent = parent.getChild(0);
+        myStudent.print();
+
+        // Print Task Lists
         parent.printTasks();
+        System.out.println("\n");
+        student.printTasks();
+
+        // Print Subjects in various states
+//        subject0.print();
+//        subject1.print();
+//        subject2.print();
+//        subject3.print();
     }
 }

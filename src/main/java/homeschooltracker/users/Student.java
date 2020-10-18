@@ -1,6 +1,5 @@
 package homeschooltracker.users;
 
-import homeschooltracker.content.Subject;
 import homeschooltracker.content.Task;
 
 import java.util.ArrayList;
@@ -40,10 +39,17 @@ public class Student {
     }
 
     public void printTasks() {
+        System.out.println("\n TODO LIST FOR " + getName());
+        System.out.println("==========================================");
+
         Iterator<Task> iterator = taskArrayList.iterator();
+
         while (iterator.hasNext()) {
             Task task = iterator.next();
-            task.print();
+            ArrayList<Task> tasks = task.getTaskArrayList();
+            tasks.forEach(
+                    (subject) -> subject.printStudentTasks()
+            );
         }
     }
 }

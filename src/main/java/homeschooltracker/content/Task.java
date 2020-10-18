@@ -37,27 +37,60 @@ public abstract class Task {
         return taskArrayList.get(position);
     }
 
+    public ArrayList<Task> getTaskArrayList() {
+        return taskArrayList;
+    }
+
     public String getName() {
         return name;
     }
 
     void setState(State state) {
         this.state = state;
+        setChildrenState(state);
+    }
+
+    void setChildrenState(State state) {
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            task.setState(state);
+        }
     }
 
     public boolean isPrepared() {
         return state.isPrepared();
     }
 
-    public void setPrepared() {
-        setState(isPreparedState);
-
-        // Set any children to the same state as the parent!
+    public Task getCurrentTask() {
         Iterator<Task> iterator = taskArrayList.iterator();
         while (iterator.hasNext()) {
             Task task = iterator.next();
-            task.setState(isPreparedState);
+            if(task.isCurrent()) {
+                return task;
+            }
         }
+        return null;
+    }
+
+    public void setReadyToPrepare() {
+        setState(currentToPrepareState);
+    };
+
+    public void setPrepared() {
+        if(getCurrentTask() == null) {
+            setState(currentLessonState);
+        } else {
+            setState(isPreparedState);
+        }
+    }
+
+    public void setChildPrepared(int position) {
+        throw new UnsupportedOperationException();
+    }
+
+    public boolean isCurrent() {
+        return state.isCurrent();
     }
 
     public boolean isCompleted() {
@@ -66,13 +99,6 @@ public abstract class Task {
 
     public void setCompleted() {
         setState(isCompletedState);
-
-        // Set any children to the same state as the parent!
-        Iterator<Task> iterator = taskArrayList.iterator();
-        while (iterator.hasNext()) {
-            Task task = iterator.next();
-            task.setState(isCompletedState);
-        }
     }
 
     public boolean isGraded() {
@@ -81,13 +107,6 @@ public abstract class Task {
 
     public void setGraded() {
         setState(isGradedState);
-
-        // Set any children to the same state as the parent!
-        Iterator<Task> iterator = taskArrayList.iterator();
-        while (iterator.hasNext()) {
-            Task task = iterator.next();
-            task.setState(isGradedState);
-        }
     }
 
     public String getStateDescription() {
@@ -128,6 +147,22 @@ public abstract class Task {
             Task task = iterator.next();
             try {
                 if(task.showInParentList()) {
+                    System.out.println(task.toString());
+                    task.printParentTasks();
+                }
+            }
+            catch(Exception e) {
+                System.out.println("  --> There are no tasks! " + e);
+            }
+        }
+    }
+
+    public void printStudentTasks() {
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            try {
+                if(task.showInStudentList()) {
                     System.out.println(task.toString());
                     task.printParentTasks();
                 }

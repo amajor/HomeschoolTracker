@@ -9,7 +9,7 @@ public class LessonTest extends TestCase {
     Lesson lesson = new Lesson(lessonName);
 
     public void testGetName() {
-        assertEquals(lessonName, lesson.getName());
+        assertEquals("LESSON: " + lessonName, lesson.getName());
     }
 
     public void testIsPrepared() {
@@ -70,7 +70,7 @@ public class LessonTest extends TestCase {
     }
 
     public void testToString() {
-        String expectedString = "  [ ][ ][ ] " + lessonName;
+        String expectedString = "  [ ][ ][ ] LESSON: " + lessonName;
         assertEquals(expectedString, lesson.toString());
     }
 
@@ -82,7 +82,7 @@ public class LessonTest extends TestCase {
         lesson.add(task1);
         lesson.add(task2);
 
-        assertEquals(description1, lesson.getChild(0).getName());
-        assertEquals(description2, lesson.getChild(1).getName());
+        assertEquals("-- " + description1, lesson.getChild(0).getName());
+        assertEquals("-- " + description2, lesson.getChild(1).getName());
     }
 }

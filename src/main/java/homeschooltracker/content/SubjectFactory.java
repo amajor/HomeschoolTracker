@@ -13,7 +13,7 @@ public class SubjectFactory {
         } else if (type.equals("PHONICS1")) {
             return new PhonicsLanguage();
         } else if (type.equals("WRITING1")) {
-            return new PhonicsLanguage();
+            return new Writing();
         } else if (type.equals("ARITHMETIC1")) {
             return new Arithmetic();
         } else if (type.equals("READING1_PML2")) {
