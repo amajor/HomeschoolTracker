@@ -5,6 +5,7 @@ public interface State {
     public boolean showInParentList();
     public boolean showInStudentList();
     public boolean isPrepared();
+    public boolean isCurrent();
     public boolean isCompleted();
     public boolean isGraded();
 }

@@ -30,6 +30,11 @@ public class CurrentLessonState implements State {
     }
 
     @Override
+    public boolean isCurrent() {
+        return true;
+    }
+
+    @Override
     public boolean isCompleted() {
         return false;
     }

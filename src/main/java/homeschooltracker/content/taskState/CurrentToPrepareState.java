@@ -30,6 +30,11 @@ public class CurrentToPrepareState implements State {
     }
 
     @Override
+    public boolean isCurrent() {
+        return false;
+    }
+
+    @Override
     public boolean isCompleted() {
         return false;
     }
