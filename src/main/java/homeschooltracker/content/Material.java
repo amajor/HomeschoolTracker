@@ -17,6 +17,10 @@ public class Material extends Task {
         this.name = name;
     }
 
+    public String getName() {
+        return "-- " + name;
+    }
+
     public void print() {
         System.out.print("  " + toString() + "\n");
     }

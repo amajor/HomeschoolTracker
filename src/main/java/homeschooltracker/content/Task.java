@@ -1,6 +1,6 @@
 package homeschooltracker.content;
 
-import homeschooltracker.content.taskState.State;
+import homeschooltracker.content.taskState.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,16 +9,20 @@ public abstract class Task {
     public String name;
     public ArrayList<Task> taskArrayList = new ArrayList<>();
 
-    State isNotPreparedState;
-    State currentToPrepareState;
-    State isPreparedState;
-    State currentLessonState;
-    State isCompletedState;
-    State isGradedState;
+
+    State isNotPreparedState = new IsNotPreparedState(this);
+    State currentToPrepareState = new CurrentToPrepareState(this);
+    State isPreparedState = new IsPreparedState(this);
+    State currentLessonState = new CurrentLessonState(this);
+    State isCompletedState = new IsCompletedState(this);
+    State isGradedState = new IsGradedState(this);
 
     State state;
 
     public void add(Task task) {
+        if(taskArrayList.size() == 0) {
+            task.setState(currentToPrepareState);
+        }
         taskArrayList.add(task);
     }
 
@@ -90,6 +94,14 @@ public abstract class Task {
         return state.getStateDescription();
     }
 
+    public boolean showInParentList() {
+        return state.showInParentList();
+    };
+
+    public boolean showInStudentList() {
+        return state.showInStudentList();
+    }
+
     public String toString() {
         String prepared = " ";
         String completed = " ";
@@ -108,5 +120,21 @@ public abstract class Task {
 
     public void print() {
         System.out.println(this.toString());
+    }
+
+    public void printParentTasks() {
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            try {
+                if(task.showInParentList()) {
+                    System.out.println(task.toString());
+                    task.printParentTasks();
+                }
+            }
+            catch(Exception e) {
+                System.out.println("  --> There are no tasks! " + e);
+            }
+        }
     }
 }

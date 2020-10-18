@@ -19,12 +19,20 @@ public class Student {
         return name;
     }
 
-    public void add(Subject subject) {
+    public void add(Task subject) {
         taskArrayList.add(subject);
     }
 
     public Task getChild(int position) {
         return taskArrayList.get(position);
+    }
+
+    public int getTaskCount() {
+        return taskArrayList.size();
+    }
+
+    public ArrayList<Task> getTaskArrayList() {
+        return taskArrayList;
     }
 
     public void print() {

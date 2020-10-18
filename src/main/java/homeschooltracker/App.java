@@ -50,14 +50,17 @@ public class App {
 
         // ***** Print Information *****
 
-        // Print Parent
-        parent.print();
+//        // Print Parent
+//        parent.print();
+//
+//        // Print Child
+//        Student myStudent = parent.getChild(0);
+//        myStudent.print();
+//
+//        // Print Child's Tasks
+//        myStudent.printTasks();
 
-        // Print Child
-        Student myStudent = parent.getChild(0);
-        myStudent.print();
-
-        // Print Child's Tasks
-        myStudent.printTasks();
+        // Print Todo Lists
+        parent.printTasks();
     }
 }

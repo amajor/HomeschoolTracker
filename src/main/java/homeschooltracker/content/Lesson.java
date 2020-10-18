@@ -7,16 +7,13 @@ import java.util.Iterator;
 public class Lesson extends Task {
     public Lesson(String name)
     {
-        isNotPreparedState = new IsNotPreparedState(this);
-        currentToPrepareState = new CurrentToPrepareState(this);
-        isPreparedState = new IsPreparedState(this);
-        currentLessonState = new CurrentLessonState(this);
-        isCompletedState = new IsCompletedState(this);
-        isGradedState = new IsGradedState(this);
-
         // Set default state
         state = isNotPreparedState;
         this.name = name;
+    }
+
+    public String getName() {
+        return "LESSON: " + name;
     }
 
     public void print() {
