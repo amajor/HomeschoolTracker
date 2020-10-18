@@ -45,9 +45,9 @@ public class App {
         bibleLesson.setGraded();
 
         // Complete a Lesson
-        Task seatworkLesson = student.getChild(1).getChild(0);
-        System.out.println("Set seatwork lesson as COMPLETED. " + seatworkLesson.getName());
-        seatworkLesson.setCompleted();
+        Task mathLesson = student.getChild(5).getChild(0);
+        System.out.println("Set seatwork lesson as COMPLETED. " + mathLesson.getName());
+        mathLesson.setCompleted();
 
         // Prepare a Lesson
         Task readingLesson = student.getChild(2).getChild(0);
@@ -60,6 +60,16 @@ public class App {
         phonicsLesson.setPrepared();
 
         // Prepare parts of a Lesson
+        Task seatworkLesson = student.getChild(1).getChild(0);
+        System.out.println("Set some seatwork materials as PREPARED. " + seatworkLesson.getName());
+        seatworkLesson.setReadyToPrepare();
+        System.out.println("... Seatwork State: " + seatworkLesson.getStateDescription());
+        seatworkLesson.setChildPrepared(0);
+        System.out.println("... Seatwork Task 0 State: " + seatworkLesson.getChild(0).getStateDescription());
+        seatworkLesson.setChildPrepared(2);
+        System.out.println("... Seatwork Task 2 State: " + seatworkLesson.getChild(2).getStateDescription());
+
+        // Prepare ALL parts of a Lesson
         Task writingLesson = student.getChild(4).getChild(0);
         writingLesson.setReadyToPrepare();
         System.out.println("Set some writing materials as PREPARED. " + writingLesson.getName());
