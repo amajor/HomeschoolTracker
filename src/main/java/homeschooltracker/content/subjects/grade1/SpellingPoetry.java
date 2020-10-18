@@ -1,6 +1,7 @@
 package homeschooltracker.content.subjects.grade1;
 
 import homeschooltracker.content.Lesson;
+import homeschooltracker.content.Material;
 import homeschooltracker.content.Subject;
 
 public class SpellingPoetry extends Subject {
@@ -8,17 +9,13 @@ public class SpellingPoetry extends Subject {
         name = "Spelling & Poetry, Grade 1";
 
         // Build Lesson 16
-        Lesson lesson16 = new Lesson(
-                "Lesson 16",
-                "Spelling and poetry...",
-                false
-        );
+        Lesson lesson16 = new Lesson("Lesson 16");
 
         // Add Materials for Lesson 16
-        lesson16.addMaterial("Drawing paper and crayons", false);
-        lesson16.addMaterial("'Spelling and Poetry 1' p64", false);
+        Material task1 = new Material("Drawing paper and crayons");
+        lesson16.add(task1);
 
         // Add lesson to this subject.
-        this.addLesson(lesson16);
+        this.add(lesson16);
     }
 }

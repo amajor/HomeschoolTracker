@@ -8,13 +8,9 @@ public class Combination extends Subject {
         name = "Combination, Grade 1";
 
         // Build Lesson 16
-        Lesson lesson16 = new Lesson(
-                "Lesson 16",
-                "Combinations...",
-                false
-        );
+        Lesson lesson16 = new Lesson("Lesson 16");
 
         // Add lesson to this subject.
-        this.addLesson(lesson16);
+        this.add(lesson16);
     }
 }

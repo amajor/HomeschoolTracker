@@ -5,55 +5,84 @@ import junit.framework.TestCase;
 public class LessonTest extends TestCase {
     // Initialize test data
     String lessonName = "MyLesson";
-    String lessonDescription = "This is a description of MyLesson";
 
-    Lesson lesson = new Lesson(
-            lessonName,
-            lessonDescription,
-            false
-    );
+    Lesson lesson = new Lesson(lessonName);
 
     public void testGetName() {
-        assertEquals(lessonName, lesson.getName());
+        assertEquals("LESSON: " + lessonName, lesson.getName());
     }
 
-    public void testGetDescription() {
-        assertEquals(lessonDescription, lesson.getDescription());
+    public void testIsPrepared() {
+        assertFalse(lesson.isPrepared());
     }
 
     public void testIsCompleted() {
         assertFalse(lesson.isCompleted());
     }
 
-    public void testIsUnfinished() {
-        assertTrue(lesson.isUnfinished());
+    public void testIsGraded() {
+        assertFalse(lesson.isGraded());
+    }
+
+    public void testMarkPrepared() {
+        // Confirm we're started with what we think
+        assertFalse(lesson.isPrepared());
+        assertFalse(lesson.isCompleted());
+        assertFalse(lesson.isGraded());
+
+        // Run the method
+        lesson.setPrepared();
+
+        // Test that it worked
+        assertTrue(lesson.isPrepared());
+        assertFalse(lesson.isCompleted());
+        assertFalse(lesson.isGraded());
     }
 
     public void testMarkCompleted() {
         // Confirm we're started with what we think
+        assertFalse(lesson.isPrepared());
         assertFalse(lesson.isCompleted());
-        assertTrue(lesson.isUnfinished());
+        assertFalse(lesson.isGraded());
 
         // Run the method
-        lesson.markCompleted();
+        lesson.setCompleted();
 
         // Test that it worked
+        assertTrue(lesson.isPrepared());
         assertTrue(lesson.isCompleted());
-        assertFalse(lesson.isUnfinished());
+        assertFalse(lesson.isGraded());
+    }
+
+    public void testMarkGraded() {
+        // Confirm we're started with what we think
+        assertFalse(lesson.isPrepared());
+        assertFalse(lesson.isCompleted());
+        assertFalse(lesson.isGraded());
+
+        // Run the method
+        lesson.setGraded();
+
+        // Test that it worked
+        assertTrue(lesson.isPrepared());
+        assertTrue(lesson.isCompleted());
+        assertTrue(lesson.isGraded());
     }
 
     public void testToString() {
-        String expectedString = "  [ ] " + lessonName + " - " + lessonDescription;
+        String expectedString = "  [ ][ ][ ] LESSON: " + lessonName;
         assertEquals(expectedString, lesson.toString());
     }
 
-    public void testAddMaterial() {
+    public void testAdd() {
         String description1 = "Phonics Workbook Page 3";
         String description2 = "Reading Handbook Page 36";
-        lesson.addMaterial(description1, false);
-        lesson.addMaterial(description2, false);
+        Material task1 = new Material(description1);
+        Material task2 = new Material(description2);
+        lesson.add(task1);
+        lesson.add(task2);
 
-        assertEquals(description1, lesson.getMaterialAtPosition(0).getDescription());
-        assertEquals(description2, lesson.getMaterialAtPosition(1).getDescription());
+        assertEquals("-- " + description1, lesson.getChild(0).getName());
+        assertEquals("-- " + description2, lesson.getChild(1).getName());
     }
 }

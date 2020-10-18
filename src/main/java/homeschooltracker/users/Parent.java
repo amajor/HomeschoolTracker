@@ -1,6 +1,9 @@
 package homeschooltracker.users;
 
+import homeschooltracker.content.Task;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Parent {
     String name;
@@ -15,15 +18,33 @@ public class Parent {
         return name;
     }
 
-    public void addStudent(Student student) {
+    public void add(Student student) {
         studentArrayList.add(student);
     }
 
-    public Student getStudentAtPosition(int position) {
+    public Student getChild(int position) {
         return studentArrayList.get(position);
     }
 
-    public void printName() {
+    public void print() {
         System.out.println("\nParent: " + getName());
+    }
+
+    public void printTasks() {
+        System.out.println("\n TODO LIST FOR " + getName());
+        System.out.println("==========================================");
+
+        Iterator<Student> iterator = studentArrayList.iterator();
+
+        while (iterator.hasNext()) {
+            Student student = iterator.next();
+            System.out.println("\n|  PREPARE/GRADE ITEMS FOR " + student.getName());
+            System.out.println("------------------------------------------");
+
+            ArrayList<Task> subjects = student.getTaskArrayList();
+            subjects.forEach(
+                (subject) -> subject.printParentTasks()
+            );
+        }
     }
 }

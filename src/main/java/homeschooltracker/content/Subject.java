@@ -1,40 +1,37 @@
 package homeschooltracker.content;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
-abstract public class Subject {
-    public String name;
-    ArrayList<Lesson> lessonArrayList = new ArrayList<>();
+abstract public class Subject extends Task {
+    public void print() {
+        System.out.println("\n==========================================");
+        System.out.println("  SUBJECT: " + getName());
+        System.out.println("------------------------------------------");
 
-    public String getName() {
-        return name;
-    }
-
-    public void addLesson(String name, String description, Boolean completed) {
-        Lesson lesson = new Lesson(name, description, completed);
-        lessonArrayList.add(lesson);
-    }
-
-    public void addLesson(Lesson lesson) {
-        lessonArrayList.add(lesson);
-    }
-
-    public Lesson getLessonAtPosition(int position) {
-        return lessonArrayList.get(position);
-    }
-
-    public void printSubjectName() {
-        System.out.println("\nSubject: " + getName());
-    }
-
-    public void printLessonList() {
-        // Create an iterator for the list using iterator() method
-        Iterator<Lesson> iterator = lessonArrayList.iterator();
-
-        // Displaying the values after iterating through the list
+        System.out.println("\n  LESSONS:");
+        Iterator<Task> iterator = taskArrayList.iterator();
         while (iterator.hasNext()) {
-            System.out.println("    " + iterator.next());
+            Task lesson = iterator.next();
+            lesson.print();
+        }
+    }
+
+    public void printParentTasks() {
+        System.out.println("\n" + getName() + ":");
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task lesson = iterator.next();
+            try {
+                if(lesson.showInParentList()) {
+                    System.out.println(lesson.toString());
+                    lesson.printParentTasks();
+                } else {
+                    System.out.println("  --> No tasks for parent!");
+                }
+            }
+            catch(Exception e) {
+                System.out.println("  --> There are no lessons! " + e);
+            }
         }
     }
 

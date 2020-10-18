@@ -16,17 +16,17 @@ public class StudentTest extends TestCase {
 
     public void testAddSubject() {
         ReadingAmLevel2 subject = new ReadingAmLevel2();
-        student.addSubject(subject);
+        student.add(subject);
 
-        assertEquals("Reading AM 2, Grade 1", student.getSubjectAtPosition(0).getName());
+        assertEquals("Reading AM 2, Grade 1", student.getChild(0).getName());
     }
 
     public void testGetSubjectAtPosition() {
         ReadingAmLevel2 subject1 = new ReadingAmLevel2();
-        student.addSubject(subject1);
+        student.add(subject1);
         Seatwork subject2 = new Seatwork();
-        student.addSubject(subject2);
+        student.add(subject2);
 
-        assertEquals("Seatwork, Grade 1", student.getSubjectAtPosition(1).getName());
+        assertEquals("Seatwork, Grade 1", student.getChild(1).getName());
     }
 }

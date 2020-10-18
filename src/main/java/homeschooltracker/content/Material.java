@@ -1,35 +1,27 @@
 package homeschooltracker.content;
 
-public class Material {
-    String description;
-    Boolean graded;
+import homeschooltracker.content.taskState.*;
 
-    public Material(
-            String description,
-            boolean graded)
+public class Material extends Task {
+    public Material(String name)
     {
-        this.description = description;
-        this.graded = graded;
+        isNotPreparedState = new IsNotPreparedState(this);
+        currentToPrepareState = new CurrentToPrepareState(this);
+        isPreparedState = new IsPreparedState(this);
+        currentLessonState = new CurrentLessonState(this);
+        isCompletedState = new IsCompletedState(this);
+        isGradedState = new IsGradedState(this);
+
+        // Set default state
+        state = isNotPreparedState;
+        this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return "-- " + name;
     }
 
-    public Boolean isGraded() {
-        return graded;
-    }
-
-    public void setGraded(Boolean graded) {
-        this.graded = graded;
-    }
-
-    @Override
-    public String toString() {
-        String check = " ";
-        if (graded) {
-            check = "X";
-        }
-        return ("  [" + check + "] " + description);
+    public void print() {
+        System.out.print("  " + toString() + "\n");
     }
 }

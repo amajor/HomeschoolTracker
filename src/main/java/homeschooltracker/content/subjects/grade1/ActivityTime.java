@@ -8,13 +8,9 @@ public class ActivityTime extends Subject {
         name = "Activity Time, Grade 1";
 
         // Build Lesson 16
-        Lesson lesson16 = new Lesson(
-                "Lesson 16",
-                "Social Studies",
-                false
-        );
+        Lesson lesson16 = new Lesson("Lesson 16");
 
         // Add lesson to this subject.
-        this.addLesson(lesson16);
+        this.add(lesson16);
     }
 }
