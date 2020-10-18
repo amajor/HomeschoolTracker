@@ -13,8 +13,9 @@ whether or not they have been completed.
 
 Additionally, the application will manage students and which subjects each student has.
 
-## Planning, Development, & Documentatino
-The java code will reside in this repository.
+## Planning, Development, & Documentation
 
 * [Kanban Board](https://github.com/amajor/HomeschoolTracker/projects/2)
 * [Project Wiki](https://github.com/amajor/HomeschoolTracker/wiki)
+  * [Design Patterns](https://github.com/amajor/HomeschoolTracker/wiki/Patterns)
+  * [Application UML](https://github.com/amajor/HomeschoolTracker/wiki/Patterns#application)
