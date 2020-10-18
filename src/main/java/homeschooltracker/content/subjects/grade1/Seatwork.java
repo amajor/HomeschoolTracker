@@ -9,7 +9,7 @@ public class Seatwork extends Subject {
         name = "Seatwork, Grade 1";
 
         // Build Lesson 16
-        Lesson lesson16 = new Lesson("Seatwork 16");
+        Lesson lesson16 = new Lesson("Seatwork Lesson 16");
 
         // Add Materials for Lesson 16
         Material task1 = new Material("Arithmetic 1, Page 31");

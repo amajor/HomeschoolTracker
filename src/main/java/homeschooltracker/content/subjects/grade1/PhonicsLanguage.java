@@ -9,7 +9,7 @@ public class PhonicsLanguage extends Subject {
         name = "Phonics / Language, Grade 1";
 
         // Build Lesson 16
-        Lesson lesson16 = new Lesson("Lesson 16");
+        Lesson lesson16 = new Lesson("Phonics Lesson 16");
 
         // Add Materials for Lesson 16
         Material task = new Material("Mini Sheet / Scrap Paper");

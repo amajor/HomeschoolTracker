@@ -9,7 +9,7 @@ public class ReadingAmLevel2 extends Subject {
         name = "Reading AM 2, Grade 1";
 
         // Build Lesson 16
-        Lesson lesson16 = new Lesson("Lesson 16");
+        Lesson lesson16 = new Lesson("Reading AM Lesson 16");
 
         // Add Materials for Lesson 16
         Material task1 = new Material("Fun with Pets");
