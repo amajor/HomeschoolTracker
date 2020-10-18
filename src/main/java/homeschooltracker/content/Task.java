@@ -9,7 +9,6 @@ public abstract class Task {
     public String name;
     public ArrayList<Task> taskArrayList = new ArrayList<>();
 
-
     State isNotPreparedState = new IsNotPreparedState(this);
     State currentToPrepareState = new CurrentToPrepareState(this);
     State isPreparedState = new IsPreparedState(this);
@@ -39,6 +38,30 @@ public abstract class Task {
 
     public ArrayList<Task> getTaskArrayList() {
         return taskArrayList;
+    }
+
+    public ArrayList<Task> getParentTaskArrayList() {
+        ArrayList<Task> parentTaskArrayList = new ArrayList<>();
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            if(task.showInParentList()) {
+                parentTaskArrayList.add(task);
+            }
+        }
+        return parentTaskArrayList;
+    }
+
+    public ArrayList<Task> getStudentTaskArrayList() {
+        ArrayList<Task> studentTaskArrayList = new ArrayList<>();
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            if(task.showInStudentList()) {
+                studentTaskArrayList.add(task);
+            }
+        }
+        return studentTaskArrayList;
     }
 
     public String getName() {
@@ -141,15 +164,13 @@ public abstract class Task {
         System.out.println(this.toString());
     }
 
-    public void printParentTasks() {
+    void printTasks(ArrayList<Task> taskArrayList) {
         Iterator<Task> iterator = taskArrayList.iterator();
         while (iterator.hasNext()) {
             Task task = iterator.next();
             try {
-                if(task.showInParentList()) {
-                    System.out.println(task.toString());
-                    task.printParentTasks();
-                }
+                System.out.println(task.toString());
+                task.printParentTasks();
             }
             catch(Exception e) {
                 System.out.println("  --> There are no tasks! " + e);
@@ -157,19 +178,11 @@ public abstract class Task {
         }
     }
 
+    public void printParentTasks() {
+        printTasks(getParentTaskArrayList());
+    }
+
     public void printStudentTasks() {
-        Iterator<Task> iterator = taskArrayList.iterator();
-        while (iterator.hasNext()) {
-            Task task = iterator.next();
-            try {
-                if(task.showInStudentList()) {
-                    System.out.println(task.toString());
-                    task.printParentTasks();
-                }
-            }
-            catch(Exception e) {
-                System.out.println("  --> There are no tasks! " + e);
-            }
-        }
+        printTasks(getStudentTaskArrayList());
     }
 }

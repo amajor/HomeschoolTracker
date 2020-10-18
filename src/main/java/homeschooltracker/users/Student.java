@@ -26,10 +26,6 @@ public class Student {
         return taskArrayList.get(position);
     }
 
-    public int getTaskCount() {
-        return taskArrayList.size();
-    }
-
     public ArrayList<Task> getTaskArrayList() {
         return taskArrayList;
     }
@@ -43,12 +39,14 @@ public class Student {
         System.out.println("==========================================");
 
         Iterator<Task> iterator = taskArrayList.iterator();
-
         while (iterator.hasNext()) {
-            Task task = iterator.next();
-            ArrayList<Task> tasks = task.getTaskArrayList();
+            Task subject = iterator.next();
+            ArrayList<Task> tasks = subject.getStudentTaskArrayList();
+            if(tasks.size() > 0) {
+                System.out.println("\n" + subject.getName());
+            }
             tasks.forEach(
-                    (subject) -> subject.printStudentTasks()
+                (task) -> task.printStudentTasks()
             );
         }
     }
