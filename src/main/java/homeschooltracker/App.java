@@ -8,6 +8,9 @@ import homeschooltracker.users.Student;
 
 public class App {
     public static void main(String[] args) {
+        new GUI("Parent Checklist");
+
+        // Build users
         Parent parent = new Parent("Anya");
         Student student = new Student("Eustace");
 
