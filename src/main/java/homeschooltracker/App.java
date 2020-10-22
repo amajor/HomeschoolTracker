@@ -100,5 +100,6 @@ public class App {
 //        subject1.print();
 //        subject2.print();
 //        subject3.print();
+        new GUI(parent);
     }
 }

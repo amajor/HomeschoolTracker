@@ -48,8 +48,14 @@ public class GUI implements ActionListener {
             lesson.printParentTasks();
 
             // Add Button for Lesson's Tasks
-            JButton taskButton = new JButton(lesson.getName());
-            panel.add(taskButton);
+            JButtonParentTask specialButton = new JButtonParentTask(lesson.getName(), lesson);
+            panel.add(specialButton);
+            specialButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent event) {
+                    JButtonParentTask tmpButton = (JButtonParentTask) event.getSource();
+                    tmpButton.execute();
+                }
+            });
         }
 
         // Build the Button
