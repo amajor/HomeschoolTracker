@@ -53,7 +53,7 @@ public class ParentTaskGUI implements ActionListener {
         Iterator<Task> subjectIterator = childSubjectList.iterator();
         while (subjectIterator.hasNext()) {
             Task subject = subjectIterator.next();
-            childLessonList.addAll(subject.getTasks(subject.getParentTaskArrayList()));
+            childLessonList.addAll(subject.getTasks(subject.getToPrepareTaskList()));
         }
 
         Iterator<Task> lessonIterator = childLessonList.iterator();

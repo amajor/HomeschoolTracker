@@ -195,6 +195,18 @@ public abstract class Task {
         return parentTaskArrayList;
     }
 
+    public ArrayList<Task> getToPrepareTaskList() {
+        ArrayList<Task> toPrepareTaskList = new ArrayList<>();
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            if(task.showInParentList() && task.getState().contains("currentToPrepare")) {
+                toPrepareTaskList.add(task);
+            }
+        }
+        return toPrepareTaskList;
+    }
+
     public ArrayList<Task> getStudentTaskArrayList() {
         ArrayList<Task> studentTaskArrayList = new ArrayList<>();
         Iterator<Task> iterator = taskArrayList.iterator();
