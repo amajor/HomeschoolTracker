@@ -14,16 +14,11 @@ import java.util.Iterator;
 
 public class ParentTaskGUI implements ActionListener {
 
-    private int count = 0;
-    private JLabel countLabel;
     private JFrame frame;
     private JPanel panel;
 
     public ParentTaskGUI(Parent parent) {
         frame = new JFrame();
-
-        JButton button = new JButton("Click Me");
-        countLabel = new JLabel("Number of clicks: 0");
 
         // Build the Panel
         panel = new JPanel();
@@ -44,13 +39,6 @@ public class ParentTaskGUI implements ActionListener {
             ArrayList<Task> childSubjectList = student.getTaskArrayList();
             addButtons(childSubjectList);
         }
-
-        // Build the Button
-        panel.add(button);
-        button.addActionListener(this);
-
-        // Build the Labels
-        panel.add(countLabel);
 
         // Add the panel to the frame and finish setup
         frame.add(panel, BorderLayout.CENTER);
@@ -87,7 +75,6 @@ public class ParentTaskGUI implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        count++;
-        countLabel.setText("Number of clicks: " + count);
+        System.out.println("actionPerformed: ActionEvent " + e);
     }
 }
