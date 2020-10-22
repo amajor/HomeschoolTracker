@@ -1,6 +1,5 @@
 package homeschooltracker.gui;
 
-import homeschooltracker.JButtonParentTask;
 import homeschooltracker.content.Task;
 import homeschooltracker.users.Parent;
 import homeschooltracker.users.Student;
@@ -70,11 +69,11 @@ public class ParentTaskGUI implements ActionListener {
             lesson.printParentTasks();
 
             // Add Button for Lesson's Tasks
-            JButtonParentTask specialButton = new JButtonParentTask(lesson.getName(), lesson);
+            JButtonParentToPrepareTask specialButton = new JButtonParentToPrepareTask(lesson.getName(), lesson);
             panel.add(specialButton);
             specialButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent event) {
-                    JButtonParentTask tmpButton = (JButtonParentTask) event.getSource();
+                    JButtonParentToPrepareTask tmpButton = (JButtonParentToPrepareTask) event.getSource();
                     tmpButton.execute();
                 }
             });
@@ -95,11 +94,11 @@ public class ParentTaskGUI implements ActionListener {
             lesson.printParentTasks();
 
             // Add Button for Lesson's Tasks
-            JButtonParentTask specialButton = new JButtonParentTask(lesson.getName(), lesson);
+            JButtonParentToGradeTask specialButton = new JButtonParentToGradeTask(lesson.getName(), lesson);
             panel.add(specialButton);
             specialButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent event) {
-                    JButtonParentTask tmpButton = (JButtonParentTask) event.getSource();
+                    JButtonParentToGradeTask tmpButton = (JButtonParentToGradeTask) event.getSource();
                     tmpButton.execute();
                 }
             });
