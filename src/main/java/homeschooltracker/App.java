@@ -11,9 +11,7 @@ public class App {
         // Build users
         Parent parent = new Parent("Anya");
         Student student = new Student("Eustace");
-
-        // Build GUI
-        new GUI(parent);
+        Student student2 = new Student("Gwendolyn");
 
         // Create the subjects using the Factory
         SubjectFactory subjectFactory = new SubjectFactory();
@@ -30,6 +28,7 @@ public class App {
 
         // Add Student to Parent
         parent.add(student);
+        parent.add(student2);
 
         // Add Subject to Student
         student.add(subject0);
@@ -42,6 +41,8 @@ public class App {
         student.add(subject7);
         student.add(subject8);
         student.add(subject9);
+        student2.add(subject0);
+        student2.add(subject1);
 
         // Grade a Lesson
         Task bibleLesson = student.getChild(0).getChild(0);
@@ -100,6 +101,12 @@ public class App {
 //        subject1.print();
 //        subject2.print();
 //        subject3.print();
+
+        // Build GUI
+        System.out.println("\n===================================================");
+        System.out.println("==================== GUI TIME =====================");
+        System.out.println("===================================================\n");
         new GUI(parent);
+
     }
 }

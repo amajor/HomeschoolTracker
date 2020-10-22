@@ -29,7 +29,7 @@ public class GUI implements ActionListener {
         panel.setLayout(new GridLayout(0, 1));
 
         // Add Child Labels
-        JLabel childLabel = new JLabel(parent.getChild(0).getName());
+        JLabel childLabel = new JLabel("Prepare for " + parent.getChild(0).getName());
         panel.add(childLabel);
 
         // Get tasks for parent
@@ -39,7 +39,7 @@ public class GUI implements ActionListener {
         Iterator<Task> subjectIterator = childSubjectList.iterator();
         while (subjectIterator.hasNext()) {
             Task subject = subjectIterator.next();
-            childLessonList.addAll(subject.getTasks(subject.getTaskArrayList()));
+            childLessonList.addAll(subject.getTasks(subject.getParentTaskArrayList()));
         }
 
         Iterator<Task> lessonIterator = childLessonList.iterator();

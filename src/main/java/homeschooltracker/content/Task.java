@@ -73,6 +73,7 @@ public abstract class Task {
     };
 
     public void setPrepared() {
+        System.out.println("  setPrepared()!");
         if(getCurrentTask() == null) {
             setState(currentLessonState);
         } else {
@@ -164,13 +165,11 @@ public abstract class Task {
     }
 
     public ArrayList<Task> getTasks(ArrayList<Task> taskArrayList) {
-        System.out.println(":::::::: getTasks method :::::::::");
         ArrayList<Task> taskList = new ArrayList<>();
         Iterator<Task> iterator = taskArrayList.iterator();
         while (iterator.hasNext()) {
             Task task = iterator.next();
             taskList.add(task);
-            System.out.println(":::::::: getTasks --> " + task.getName());
             taskList.addAll(getTasks(task.getTaskArrayList()));
         }
         return taskList;
