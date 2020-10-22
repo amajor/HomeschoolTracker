@@ -3,6 +3,7 @@ package homeschooltracker.gui;
 import homeschooltracker.JButtonParentTask;
 import homeschooltracker.content.Task;
 import homeschooltracker.users.Parent;
+import homeschooltracker.users.Student;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,14 +30,38 @@ public class ParentTaskGUI implements ActionListener {
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
         panel.setLayout(new GridLayout(0, 1));
 
-        // Add Child Labels
-        JLabel childLabel = new JLabel("Prepare for " + parent.getChild(0).getName());
-        panel.add(childLabel);
-
         // Get tasks for parent
-        ArrayList<Task> childLessonList = new ArrayList<>();
-        ArrayList<Task> childSubjectList = parent.getChild(0).getTaskArrayList();
+        ArrayList<Student> students = parent.getChildren();
 
+        // Iterate through children
+        Iterator<Student> studentIterator = students.iterator();
+        while (studentIterator.hasNext()) {
+            // Add Child Labels
+            Student student = studentIterator.next();
+            JLabel childLabel = new JLabel("Prepare for " + student.getName());
+            panel.add(childLabel);
+
+            ArrayList<Task> childSubjectList = student.getTaskArrayList();
+            addButtons(childSubjectList);
+        }
+
+        // Build the Button
+        panel.add(button);
+        button.addActionListener(this);
+
+        // Build the Labels
+        panel.add(countLabel);
+
+        // Add the panel to the frame and finish setup
+        frame.add(panel, BorderLayout.CENTER);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("Parent Tasks for " + parent.getName());
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    public void addButtons(ArrayList<Task> childSubjectList) {
+        ArrayList<Task> childLessonList = new ArrayList<>();
         Iterator<Task> subjectIterator = childSubjectList.iterator();
         while (subjectIterator.hasNext()) {
             Task subject = subjectIterator.next();
@@ -58,20 +83,6 @@ public class ParentTaskGUI implements ActionListener {
                 }
             });
         }
-
-        // Build the Button
-        panel.add(button);
-        button.addActionListener(this);
-
-        // Build the Labels
-        panel.add(countLabel);
-
-        // Add the panel to the frame and finish setup
-        frame.add(panel, BorderLayout.CENTER);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Parent Tasks for " + parent.getName());
-        frame.pack();
-        frame.setVisible(true);
     }
 
     @Override
