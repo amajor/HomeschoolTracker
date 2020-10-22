@@ -3,6 +3,7 @@ package homeschooltracker;
 import homeschooltracker.content.Subject;
 import homeschooltracker.content.SubjectFactory;
 import homeschooltracker.content.Task;
+import homeschooltracker.gui.ParentTaskGUI;
 import homeschooltracker.users.Parent;
 import homeschooltracker.users.Student;
 
@@ -106,7 +107,7 @@ public class App {
         System.out.println("\n===================================================");
         System.out.println("==================== GUI TIME =====================");
         System.out.println("===================================================\n");
-        new GUI(parent);
+        new ParentTaskGUI(parent);
 
     }
 }

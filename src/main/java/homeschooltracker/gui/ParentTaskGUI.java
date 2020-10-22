@@ -1,5 +1,6 @@
-package homeschooltracker;
+package homeschooltracker.gui;
 
+import homeschooltracker.JButtonParentTask;
 import homeschooltracker.content.Task;
 import homeschooltracker.users.Parent;
 
@@ -10,14 +11,14 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class GUI implements ActionListener {
+public class ParentTaskGUI implements ActionListener {
 
     private int count = 0;
     private JLabel countLabel;
     private JFrame frame;
     private JPanel panel;
 
-    public GUI(Parent parent) {
+    public ParentTaskGUI(Parent parent) {
         frame = new JFrame();
 
         JButton button = new JButton("Click Me");
