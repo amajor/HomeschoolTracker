@@ -36,34 +36,6 @@ public abstract class Task {
         return taskArrayList.get(position);
     }
 
-    public ArrayList<Task> getTaskArrayList() {
-        return taskArrayList;
-    }
-
-    public ArrayList<Task> getParentTaskArrayList() {
-        ArrayList<Task> parentTaskArrayList = new ArrayList<>();
-        Iterator<Task> iterator = taskArrayList.iterator();
-        while (iterator.hasNext()) {
-            Task task = iterator.next();
-            if(task.showInParentList()) {
-                parentTaskArrayList.add(task);
-            }
-        }
-        return parentTaskArrayList;
-    }
-
-    public ArrayList<Task> getStudentTaskArrayList() {
-        ArrayList<Task> studentTaskArrayList = new ArrayList<>();
-        Iterator<Task> iterator = taskArrayList.iterator();
-        while (iterator.hasNext()) {
-            Task task = iterator.next();
-            if(task.showInStudentList()) {
-                studentTaskArrayList.add(task);
-            }
-        }
-        return studentTaskArrayList;
-    }
-
     public String getName() {
         return name;
     }
@@ -184,5 +156,51 @@ public abstract class Task {
 
     public void printStudentTasks() {
         printTasks(getStudentTaskArrayList());
+    }
+
+
+    public ArrayList<Task> getTaskArrayList() {
+        return taskArrayList;
+    }
+
+    public ArrayList<Task> getTasks(ArrayList<Task> taskArrayList) {
+        System.out.println(":::::::: getTasks method :::::::::");
+        ArrayList<Task> taskList = new ArrayList<>();
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            taskList.add(task);
+            System.out.println(":::::::: getTasks --> " + task.getName());
+            taskList.addAll(getTasks(task.getTaskArrayList()));
+        }
+        return taskList;
+    }
+
+    public ArrayList<Task> getParentTasks() {
+        return getTasks(getParentTaskArrayList());
+    }
+
+    public ArrayList<Task> getParentTaskArrayList() {
+        ArrayList<Task> parentTaskArrayList = new ArrayList<>();
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            if(task.showInParentList()) {
+                parentTaskArrayList.add(task);
+            }
+        }
+        return parentTaskArrayList;
+    }
+
+    public ArrayList<Task> getStudentTaskArrayList() {
+        ArrayList<Task> studentTaskArrayList = new ArrayList<>();
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            if(task.showInStudentList()) {
+                studentTaskArrayList.add(task);
+            }
+        }
+        return studentTaskArrayList;
     }
 }

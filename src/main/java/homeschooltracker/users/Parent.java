@@ -47,4 +47,8 @@ public class Parent {
             );
         }
     }
+
+    public ArrayList<Student> getChildren() {
+        return studentArrayList;
+    }
 }
