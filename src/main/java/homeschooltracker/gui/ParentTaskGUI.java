@@ -33,11 +33,8 @@ public class ParentTaskGUI implements ActionListener {
         while (studentIterator.hasNext()) {
             // Add Child Labels
             Student student = studentIterator.next();
-            JLabel childLabel = new JLabel("Prepare for " + student.getName());
-            panel.add(childLabel);
-
             ArrayList<Task> childSubjectList = student.getTaskArrayList();
-            addButtons(childSubjectList);
+            addButtons(student.getName(), childSubjectList);
         }
 
         // Add the panel to the frame and finish setup
@@ -48,17 +45,53 @@ public class ParentTaskGUI implements ActionListener {
         frame.setVisible(true);
     }
 
-    public void addButtons(ArrayList<Task> childSubjectList) {
-        ArrayList<Task> childLessonList = new ArrayList<>();
+    public void addButtons(String studentName, ArrayList<Task> childSubjectList) {
+        ArrayList<Task> prepareLessonList = new ArrayList<>();
+        ArrayList<Task> gradeLessonList = new ArrayList<>();
         Iterator<Task> subjectIterator = childSubjectList.iterator();
         while (subjectIterator.hasNext()) {
             Task subject = subjectIterator.next();
-            childLessonList.addAll(subject.getTasks(subject.getToPrepareTaskList()));
+            prepareLessonList.addAll(subject.getTasks(subject.getToPrepareTaskList()));
+            gradeLessonList.addAll(subject.getTasks(subject.getToGradeTaskList()));
         }
 
-        Iterator<Task> lessonIterator = childLessonList.iterator();
+        String prepareLabelText = "";
+        if (prepareLessonList.size() > 0) {
+            prepareLabelText = "Prepare for " + studentName;
+        } else {
+            prepareLabelText = "-- No lessons to prepare for " + studentName + " --";
+        }
+        JLabel childPrepareLabel = new JLabel(prepareLabelText);
+        panel.add(childPrepareLabel);
+
+        Iterator<Task> lessonIterator = prepareLessonList.iterator();
         while (lessonIterator.hasNext()) {
             Task lesson = lessonIterator.next();
+            lesson.printParentTasks();
+
+            // Add Button for Lesson's Tasks
+            JButtonParentTask specialButton = new JButtonParentTask(lesson.getName(), lesson);
+            panel.add(specialButton);
+            specialButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent event) {
+                    JButtonParentTask tmpButton = (JButtonParentTask) event.getSource();
+                    tmpButton.execute();
+                }
+            });
+        }
+
+        String gradeLabelText = "";
+        if (gradeLessonList.size() > 0) {
+            gradeLabelText = "Grade for " + studentName;
+        } else {
+            gradeLabelText = "-- No lessons to grade for " + studentName + " --";
+        }
+        JLabel childGradeLabel = new JLabel(gradeLabelText);
+        panel.add(childGradeLabel);
+
+        Iterator<Task> gradeIterator = gradeLessonList.iterator();
+        while (gradeIterator.hasNext()) {
+            Task lesson = gradeIterator.next();
             lesson.printParentTasks();
 
             // Add Button for Lesson's Tasks

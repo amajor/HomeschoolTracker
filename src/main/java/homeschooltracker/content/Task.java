@@ -207,6 +207,18 @@ public abstract class Task {
         return toPrepareTaskList;
     }
 
+    public ArrayList<Task> getToGradeTaskList() {
+        ArrayList<Task> toGradeTaskList = new ArrayList<>();
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            if(task.showInParentList() && task.getState().contains("isCompleted")) {
+                toGradeTaskList.add(task);
+            }
+        }
+        return toGradeTaskList;
+    }
+
     public ArrayList<Task> getStudentTaskArrayList() {
         ArrayList<Task> studentTaskArrayList = new ArrayList<>();
         Iterator<Task> iterator = taskArrayList.iterator();
