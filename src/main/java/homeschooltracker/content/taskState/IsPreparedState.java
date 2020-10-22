@@ -10,6 +10,11 @@ public class IsPreparedState implements State {
     }
 
     @Override
+    public String getState() {
+        return "isPrepared";
+    }
+
+    @Override
     public String getStateDescription() {
         return ("The task \"" + task.getName() + "\" has been prepared.");
     }

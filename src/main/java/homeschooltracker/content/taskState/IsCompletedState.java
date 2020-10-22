@@ -10,6 +10,11 @@ public class IsCompletedState implements State {
     }
 
     @Override
+    public String getState() {
+        return "isCompleted";
+    }
+
+    @Override
     public String getStateDescription() {
         return ("The task \"" + task.getName() + "\" has been completed by the student.");
     }

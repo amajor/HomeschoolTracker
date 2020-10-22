@@ -10,6 +10,11 @@ public class CurrentToPrepareState implements State {
     }
 
     @Override
+    public String getState() {
+        return "currentToPrepare";
+    }
+
+    @Override
     public String getStateDescription() {
         return ("This task \"" + task.getName() + "\" is being prepared by the parent.");
     }

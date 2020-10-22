@@ -109,6 +109,10 @@ public abstract class Task {
         return state.getStateDescription();
     }
 
+    public String getState() {
+        return state.getState();
+    }
+
     public boolean showInParentList() {
         return state.showInParentList();
     };
