@@ -11,7 +11,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class StudentPanel extends JPanel {
-    public StudentPanel(Student student) {
+    private FamilyGUI familyGUI;
+
+    public StudentPanel(Student student, FamilyGUI familyGUI) {
+        this.familyGUI = familyGUI;
+
         // Build the Panel
         this.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
         this.setLayout(new GridLayout(0, 1));
@@ -68,6 +72,7 @@ public class StudentPanel extends JPanel {
                 public void actionPerformed(ActionEvent event) {
                     JButtonStudentToCompleteTask tmpButton = (JButtonStudentToCompleteTask) event.getSource();
                     tmpButton.execute();
+                    familyGUI.drawPanels();
                 }
             });
         }

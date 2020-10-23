@@ -12,6 +12,7 @@ public class FamilyGUI {
 
     private JFrame frame;
     private Parent parent;
+    private Container mainContainer;
 
     public FamilyGUI(Parent parent) {
         this.parent = parent;
@@ -34,11 +35,12 @@ public class FamilyGUI {
         System.out.println("\n::::::::::::::::::::::::::::::::::::::::::::::");
         System.out.println("::::::::::::: START drawPanels() ::::::::::::::");
         System.out.println("::::::::::::::::::::::::::::::::::::::::::::::\n");
-        Container mainContainer = frame.getContentPane();
+        mainContainer = frame.getContentPane();
+        mainContainer.removeAll(); // Clear everything out for redraws on updates
         mainContainer.setLayout(new BorderLayout(8, 6));
 
         // Parent Panel
-        JPanel parentPanel = new ParentPanel(parent);
+        JPanel parentPanel = new ParentPanel(parent, this);
         int numberOfStudents = parent.getNumberOfChildren();
 
         // Grid Panel
@@ -51,7 +53,7 @@ public class FamilyGUI {
         while (studentsIterator.hasNext()) {
             Student student = studentsIterator.next();
             // Student Panel
-            JPanel studentPanel = new StudentPanel(student);
+            JPanel studentPanel = new StudentPanel(student, this);
             gridPanel.add(studentPanel);
         }
 

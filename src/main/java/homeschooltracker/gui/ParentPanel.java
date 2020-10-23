@@ -12,10 +12,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class ParentPanel extends JPanel {
-    public ParentPanel(Parent parent) {
+    private FamilyGUI familyGUI;
+
+    public ParentPanel(Parent parent, FamilyGUI familyGUI) {
+        this.familyGUI = familyGUI;
+
+        // Build the Panel
         this.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
         this.setLayout(new GridLayout(0, 1));
 
+        // Add label
         this.add(new JLabel("Parent Panel: " + parent.getName()));
         this.add(new JLabel("Number of Students: " + parent.getNumberOfChildren()));
 
@@ -90,6 +96,7 @@ public class ParentPanel extends JPanel {
                 public void actionPerformed(ActionEvent event) {
                     JButtonParentToPrepareTask tmpButton = (JButtonParentToPrepareTask) event.getSource();
                     tmpButton.execute();
+                    familyGUI.drawPanels();
                 }
             });
         }
@@ -115,6 +122,7 @@ public class ParentPanel extends JPanel {
                 public void actionPerformed(ActionEvent event) {
                     JButtonParentToGradeTask tmpButton = (JButtonParentToGradeTask) event.getSource();
                     tmpButton.execute();
+                    familyGUI.drawPanels();
                 }
             });
         }
