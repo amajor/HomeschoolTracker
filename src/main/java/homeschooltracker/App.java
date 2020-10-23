@@ -18,7 +18,7 @@ public class App {
 
     /**
      * The main method is where the GUI is generated and pre-loaded with some data in the Parent and Student instances.
-     * @param args
+     * @param args The arguments for the main method.
      */
     public static void main(String[] args) {
         // Build parent

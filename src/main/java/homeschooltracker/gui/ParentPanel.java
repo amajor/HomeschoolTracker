@@ -1,3 +1,6 @@
+/*
+ * (c) 2020 Alison Major. All rights reserved.
+ */
 package homeschooltracker.gui;
 
 import homeschooltracker.content.Task;
@@ -11,9 +14,22 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * The {@code ParentPanel} class extends {@code JPanel} and builds a panel with {@code Parent} tasks.
+ * @author Alison Major
+ */
 public class ParentPanel extends JPanel {
     private FamilyGUI familyGUI;
 
+    /**
+     * The constructor builds the {@code JPanel} specifically for a {@code Parent}. If a task is clicked, the
+     * {@code FamilyGUI} is redrawn.
+     * @see homeschooltracker.users.Parent
+     * @see homeschooltracker.users.Student
+     * @see homeschooltracker.content.Task
+     * @param parent The Parent that has tasks to complete for a lesson.
+     * @param familyGUI The GUI that contains the StudentPanel.
+     */
     public ParentPanel(Parent parent, FamilyGUI familyGUI) {
         this.familyGUI = familyGUI;
 
@@ -44,6 +60,12 @@ public class ParentPanel extends JPanel {
         }
     }
 
+    /**
+     * Gets the tasks belonging to a {@code Student} that matches a given {@code State}
+     * @param student The Student that has tasks to complete for a lesson.
+     * @param state The current state of the task.
+     * @return An array list of {@code Task} items belong to the {@code Student} that match a certain state.
+     */
     public ArrayList<Task> getTasks(Student student, String state) {
         // Get tasks for student
         ArrayList<Task> subjects = student.getTaskArrayList();
@@ -76,6 +98,14 @@ public class ParentPanel extends JPanel {
         return currentTasks;
     }
 
+    /**
+     * Adds buttons for each {@code Task} in a provided array list. If the button is clicked, the task will be set
+     * to the state, {@code IsPreparedState}.
+     * @see homeschooltracker.gui.JButtonParentToPrepareTask
+     * @see homeschooltracker.content.taskState.IsPreparedState
+     * @param tasks The tasks to create buttons for. Clicking the button will set the state to {@code IsPreparedState}.
+     * @param studentName The name of the student who the tasks belong to.
+     */
     public void addToPrepareButtons(ArrayList<Task> tasks, String studentName) {
         String prepareLabelText = "";
         if (tasks.size() > 0) {
@@ -102,6 +132,14 @@ public class ParentPanel extends JPanel {
         }
     }
 
+    /**
+     * Adds buttons for each {@code Task} in a provided array list. If the button is clicked, the task will be set
+     * to the state, {@code IsGradedState}.
+     * @see homeschooltracker.gui.JButtonParentToPrepareTask
+     * @see homeschooltracker.content.taskState.IsGradedState
+     * @param tasks The tasks to create buttons for. Clicking the button will set the state to {@code IsGradedState}.
+     * @param studentName The name of the student who the tasks belong to.
+     */
     public void addToGradeButtons(ArrayList<Task> tasks, String studentName) {
         String gradeLabelText = "";
         if (tasks.size() > 0) {

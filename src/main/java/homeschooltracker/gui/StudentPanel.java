@@ -1,3 +1,6 @@
+/*
+ * (c) 2020 Alison Major. All rights reserved.
+ */
 package homeschooltracker.gui;
 
 import homeschooltracker.content.Task;
@@ -10,9 +13,21 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * The {@code StudentPanel} class extends {@code JPanel} and builds a panel with {@code Student} tasks.
+ * @author Alison Major
+ */
 public class StudentPanel extends JPanel {
     private FamilyGUI familyGUI;
 
+    /**
+     * The constructor builds the {@code JPanel} specifically for a {@code Student}. If a task is clicked, the
+     * {@code FamilyGUI} is redrawn.
+     * @see homeschooltracker.users.Student
+     * @see homeschooltracker.content.Task
+     * @param student The Student that has tasks to complete for a lesson.
+     * @param familyGUI The GUI that contains the StudentPanel.
+     */
     public StudentPanel(Student student, FamilyGUI familyGUI) {
         this.familyGUI = familyGUI;
 
@@ -29,6 +44,12 @@ public class StudentPanel extends JPanel {
         addButtons(tasks);
     }
 
+    /**
+     * Gets the tasks belonging to a {@code Student} that matches a given {@code State}
+     * @param student The Student that has tasks to complete for a lesson.
+     * @param state The current state of the task.
+     * @return An array list of {@code Task} items belong to the {@code Student} that match a certain state.
+     */
     public ArrayList<Task> getTasks(Student student, String state) {
         // Get tasks for student
         ArrayList<Task> subjects = student.getTaskArrayList();
@@ -61,6 +82,13 @@ public class StudentPanel extends JPanel {
         return currentTasks;
     }
 
+    /**
+     * Adds buttons for each {@code Task} in a provided array list. If the button is clicked, the task will be set
+     * to the state, {@code IsCompletedState}.
+     * @see homeschooltracker.gui.JButtonStudentToCompleteTask
+     * @see homeschooltracker.content.taskState.IsCompletedState
+     * @param tasks The tasks to create buttons for. Clicking the button will set the state to {@code IsCompletedState}.
+     */
     public void addButtons(ArrayList<Task> tasks) {
         Iterator<Task> taskIterator = tasks.iterator();
         while (taskIterator.hasNext()) {
