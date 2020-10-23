@@ -24,9 +24,6 @@ public class FamilyGUI {
 
         // Parent Panel
         JPanel parentPanel = new ParentPanel(parent);
-        parentPanel.add(new JLabel("Parent Panel: " + parent.getName()));
-        parentPanel.add(new JLabel("Number of Students: " + parent.getNumberOfChildren()));
-
         int numberOfStudents = parent.getNumberOfChildren();
 
         // Grid Panel

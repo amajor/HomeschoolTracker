@@ -20,15 +20,47 @@ public class StudentPanel extends JPanel {
         // Add label
         this.add(new JLabel("Student Panel: " + student.getName()));
 
-        // Get tasks for student
-        ArrayList<Task> tasks = student.getTaskArrayList();
+        // Add buttons of the tasks
+        ArrayList<Task> tasks = getTasks(student, "currentLesson");
         addButtons(tasks);
     }
 
+    public ArrayList<Task> getTasks(Student student, String state) {
+        // Get tasks for student
+        ArrayList<Task> subjects = student.getTaskArrayList();
+        ArrayList<Task> lessons = new ArrayList<>();
+        ArrayList<Task> tasks = new ArrayList<>();
+        ArrayList<Task> currentTasks = new ArrayList<>();
+
+        // Get the current lessons from the subjects
+        Iterator<Task> subjectIterator = subjects.iterator();
+        while (subjectIterator.hasNext()) {
+            Task subject = subjectIterator.next();
+            lessons.addAll(subject.getTaskArrayList());
+        }
+
+        // Get the tasks from the current lessons
+        Iterator<Task> lessonIterator = lessons.iterator();
+        while (lessonIterator.hasNext()) {
+            Task lesson = lessonIterator.next();
+            tasks.addAll(lesson.getTaskArrayList());
+        }
+
+        // Get the current tasks from all tasks
+        Iterator<Task> taskIterator = tasks.iterator();
+        while (taskIterator.hasNext()) {
+            Task task = taskIterator.next();
+            if (task.getState() == state) {
+                currentTasks.add(task);
+            }
+        }
+        return currentTasks;
+    }
+
     public void addButtons(ArrayList<Task> tasks) {
-        Iterator<Task> iterator = tasks.iterator();
-        while (iterator.hasNext()) {
-            Task task = iterator.next();
+        Iterator<Task> taskIterator = tasks.iterator();
+        while (taskIterator.hasNext()) {
+            Task task = taskIterator.next();
             // Add Button for each task
             JButtonStudentToCompleteTask specialButton = new JButtonStudentToCompleteTask(task.getName(), task);
             this.add(specialButton);

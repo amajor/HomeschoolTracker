@@ -92,10 +92,15 @@ public class App {
         Student myStudent = parent.getChild(0);
         myStudent.print();
 
+        // Print Child
+        Student myStudent2 = parent.getChild(1);
+        myStudent2.print();
+
         // Print Task Lists
         parent.printTasks();
         System.out.println("\n");
         student.printTasks();
+        student2.printTasks();
 
         // Print Subjects in various states
 //        subject0.print();
