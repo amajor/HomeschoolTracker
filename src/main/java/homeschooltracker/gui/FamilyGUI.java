@@ -11,14 +11,29 @@ import java.util.Iterator;
 public class FamilyGUI {
 
     private JFrame frame;
+    private Parent parent;
 
     public FamilyGUI(Parent parent) {
+        this.parent = parent;
+
+        // Build the frame
         frame = new JFrame();
         frame.setTitle("Family Tasks");
         frame.setSize(700,1000);
         frame.setLocation(100, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        // Draw the interior panels
+        drawPanels();
+
+        // Set it visible
+        frame.setVisible(true);
+    }
+
+    public void drawPanels() {
+        System.out.println("\n::::::::::::::::::::::::::::::::::::::::::::::");
+        System.out.println("::::::::::::: START drawPanels() ::::::::::::::");
+        System.out.println("::::::::::::::::::::::::::::::::::::::::::::::\n");
         Container mainContainer = frame.getContentPane();
         mainContainer.setLayout(new BorderLayout(8, 6));
 
@@ -43,7 +58,8 @@ public class FamilyGUI {
         // Add the grid to main layout
         mainContainer.add(gridPanel, BorderLayout.CENTER);
 
-        // Set it visible
-        frame.setVisible(true);
+        System.out.println("\n::::::::::::::::::::::::::::::::::::::::::::::");
+        System.out.println(":::::::::::::: END drawPanels() :::::::::::::::");
+        System.out.println("::::::::::::::::::::::::::::::::::::::::::::::\n");
     }
 }
