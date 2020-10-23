@@ -1,8 +1,20 @@
+/*
+ * (c) 2020 Alison Major. All rights reserved.
+ */
 package homeschooltracker.content;
 
 import homeschooltracker.content.subjects.grade1.*;
 
+/**
+ * A factory for creating different subjects loaded with {@code Lesson}s.
+ * @author Alison Major
+ */
 public class SubjectFactory {
+    /**
+     * Gets the {@code Subject} based on the type passed in.
+     * @param type A string designation for the Subject desired.
+     * @return The concrete {@code Subject}
+     */
     public Subject getSubject(String type) {
         if (type.equals("BIBLE1")) {
             return new Bible();
