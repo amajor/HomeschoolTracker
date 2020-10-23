@@ -1,3 +1,6 @@
+/*
+ * (c) 2020 Alison Major. All rights reserved.
+ */
 package homeschooltracker.gui;
 
 import homeschooltracker.users.Parent;
@@ -7,12 +10,21 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Iterator;
 
+/**
+ * The {@code FamilyGUI} class builds a graphical user interface for interacting with the Homeschool Tracker methods
+ * and data.
+ * @author Alison Major
+ */
 public class FamilyGUI {
 
     private JFrame frame;
     private Parent parent;
     private Container mainContainer;
 
+    /**
+     * Builds the graphical user interface based on the parent and the data contained under the parent.
+     * @param parent The parent that is assisting the students
+     */
     public FamilyGUI(Parent parent) {
         this.parent = parent;
 
@@ -30,6 +42,10 @@ public class FamilyGUI {
         frame.setVisible(true);
     }
 
+    /**
+     * Draws panels for the {@code FamilyGUI} class. This method is extracted so that we can redraw as tasks are
+     * updated.
+     */
     public void drawPanels() {
         mainContainer = frame.getContentPane();
         mainContainer.removeAll(); // Clear everything out for redraws on updates

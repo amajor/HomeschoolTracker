@@ -1,8 +1,18 @@
+/*
+ * (c) 2020 Alison Major. All rights reserved.
+ */
 package homeschooltracker.content;
 
 import java.util.Iterator;
 
+/**
+ * This extends the {@code Task} class to create a Subject, which could contain {@code Lesson}(s).
+ * @author Alison Major
+ */
 abstract public class Subject extends Task {
+    /**
+     * Prints the Subject and its Lessons.
+     */
     public void print() {
         System.out.println("\n==========================================");
         System.out.println("  SUBJECT: " + getName());
@@ -16,6 +26,10 @@ abstract public class Subject extends Task {
         }
     }
 
+    /**
+     * Prints the tasks nested under this subject that belong to the {@code Parent}
+     * @see homeschooltracker.users.Parent
+     */
     public void printParentTasks() {
         System.out.println("\n" + getName() + ":");
         Iterator<Task> iterator = taskArrayList.iterator();
@@ -35,6 +49,10 @@ abstract public class Subject extends Task {
         }
     }
 
+    /**
+     * Builds a string using the Subject name.
+     * @return The name of the Subject.
+     */
     @Override
     public String toString() {
         return name;
