@@ -14,7 +14,7 @@ public class JButtonStudentToCompleteTask extends JButton {
     }
 
     public void execute() {
-        System.out.println("execute JButtonStudentToCompleteTask: " + task.getName());
+        System.out.println("\nexecute JButtonStudentToCompleteTask: " + task.getName());
         task.setCompleted();
         System.out.println("  --> " + task.getStateDescription());
 

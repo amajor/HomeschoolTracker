@@ -14,7 +14,7 @@ public class JButtonParentToPrepareTask extends JButton {
     }
 
     public void execute() {
-        System.out.println("execute JButtonParentToPrepareTask: " + task.getName());
+        System.out.println("\nexecute JButtonParentToPrepareTask: " + task.getName());
         task.setPrepared();
         System.out.println("  --> " + task.getStateDescription());
 

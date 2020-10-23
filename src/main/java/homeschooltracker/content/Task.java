@@ -73,7 +73,6 @@ public abstract class Task {
     };
 
     public void setPrepared() {
-        System.out.println("  setPrepared()!");
         if(getCurrentTask() == null) {
             setState(currentLessonState);
         } else {

@@ -14,7 +14,7 @@ public class JButtonParentToGradeTask extends JButton {
     }
 
     public void execute() {
-        System.out.println("execute JButtonParentToGradeTask: " + task.getName());
+        System.out.println("\nexecute JButtonParentToGradeTask: " + task.getName());
         task.setGraded();
         System.out.println("  --> " + task.getStateDescription());
 

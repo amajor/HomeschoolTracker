@@ -32,9 +32,6 @@ public class FamilyGUI {
     }
 
     public void drawPanels() {
-        System.out.println("\n::::::::::::::::::::::::::::::::::::::::::::::");
-        System.out.println("::::::::::::: START drawPanels() ::::::::::::::");
-        System.out.println("::::::::::::::::::::::::::::::::::::::::::::::\n");
         mainContainer = frame.getContentPane();
         mainContainer.removeAll(); // Clear everything out for redraws on updates
         mainContainer.setLayout(new BorderLayout(8, 6));
@@ -59,9 +56,5 @@ public class FamilyGUI {
 
         // Add the grid to main layout
         mainContainer.add(gridPanel, BorderLayout.CENTER);
-
-        System.out.println("\n::::::::::::::::::::::::::::::::::::::::::::::");
-        System.out.println(":::::::::::::: END drawPanels() :::::::::::::::");
-        System.out.println("::::::::::::::::::::::::::::::::::::::::::::::\n");
     }
 }
