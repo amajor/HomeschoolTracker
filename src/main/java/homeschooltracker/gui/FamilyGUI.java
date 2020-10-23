@@ -4,7 +4,6 @@ import homeschooltracker.users.Parent;
 import homeschooltracker.users.Student;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.util.Iterator;
 

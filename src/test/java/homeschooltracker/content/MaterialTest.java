@@ -11,8 +11,8 @@ public class MaterialTest extends TestCase {
     Material material2 = new Material(description2);
 
     public void testGetDescription() {
-        assertEquals("-- " + description1, material1.getName());
-        assertEquals("-- " + description2, material2.getName());
+        assertEquals(description1, material1.getName());
+        assertEquals(description2, material2.getName());
     }
 
     public void testPrepared() {
@@ -35,10 +35,10 @@ public class MaterialTest extends TestCase {
 
     public void testToString() {
         material1.setGraded();
-        String expected1 = "  [X][X][X] -- " + description1;
+        String expected1 = "  [X][X][X] " + description1;
 
         material2.setPrepared();
-        String expected2 = "  [X][ ][ ] -- " + description2;
+        String expected2 = "  [X][ ][ ] " + description2;
 
         assertEquals(expected1, material1.toString());
         assertEquals(expected2, material2.toString());

@@ -82,7 +82,7 @@ public class LessonTest extends TestCase {
         lesson.add(task1);
         lesson.add(task2);
 
-        assertEquals("-- " + description1, lesson.getChild(0).getName());
-        assertEquals("-- " + description2, lesson.getChild(1).getName());
+        assertEquals(description1, lesson.getChild(0).getName());
+        assertEquals(description2, lesson.getChild(1).getName());
     }
 }

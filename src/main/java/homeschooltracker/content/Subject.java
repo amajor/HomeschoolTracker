@@ -1,6 +1,5 @@
 package homeschooltracker.content;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 abstract public class Subject extends Task {
@@ -15,25 +14,6 @@ abstract public class Subject extends Task {
             Task lesson = iterator.next();
             lesson.print();
         }
-    }
-
-    public ArrayList<Task> getParentTasks() {
-        ArrayList<Task> parentTaskList = new ArrayList<Task>();
-        Iterator<Task> iterator = taskArrayList.iterator();
-        while (iterator.hasNext()) {
-            Task lesson = iterator.next();
-            try {
-                if(lesson.showInParentList()) {
-                    parentTaskList.addAll(lesson.getParentTaskArrayList());
-                } else {
-                    System.out.println("No tasks for parent in lesson " + lesson.getName() + "!");
-                }
-            }
-            catch(Exception e) {
-                System.out.println("There are no lessons! " + e);
-            }
-        }
-        return parentTaskList;
     }
 
     public void printParentTasks() {

@@ -25,10 +25,6 @@ public abstract class Task {
         taskArrayList.add(task);
     }
 
-    public void remove(Task task) {
-        throw new UnsupportedOperationException();
-    }
-
     public Task getChild(int position) {
         if(taskArrayList.size() == 0) {
             throw new UnsupportedOperationException();
@@ -68,20 +64,12 @@ public abstract class Task {
         return null;
     }
 
-    public void setReadyToPrepare() {
-        setState(currentToPrepareState);
-    };
-
     public void setPrepared() {
         if(getCurrentTask() == null) {
             setState(currentLessonState);
         } else {
             setState(isPreparedState);
         }
-    }
-
-    public void setChildPrepared(int position) {
-        throw new UnsupportedOperationException();
     }
 
     public boolean isCurrent() {
@@ -178,10 +166,6 @@ public abstract class Task {
         return taskList;
     }
 
-    public ArrayList<Task> getParentTasks() {
-        return getTasks(getParentTaskArrayList());
-    }
-
     public ArrayList<Task> getParentTaskArrayList() {
         ArrayList<Task> parentTaskArrayList = new ArrayList<>();
         Iterator<Task> iterator = taskArrayList.iterator();
@@ -192,42 +176,6 @@ public abstract class Task {
             }
         }
         return parentTaskArrayList;
-    }
-
-    public ArrayList<Task> getToPrepareTaskList() {
-        ArrayList<Task> toPrepareTaskList = new ArrayList<>();
-        Iterator<Task> iterator = taskArrayList.iterator();
-        while (iterator.hasNext()) {
-            Task task = iterator.next();
-            if(task.showInParentList() && task.getState().contains("currentToPrepare")) {
-                toPrepareTaskList.add(task);
-            }
-        }
-        return toPrepareTaskList;
-    }
-
-    public ArrayList<Task> getCurrentLessonTaskList() {
-        ArrayList<Task> currentLessonList = new ArrayList<>();
-        Iterator<Task> iterator = taskArrayList.iterator();
-        while (iterator.hasNext()) {
-            Task task = iterator.next();
-            if(task.showInParentList() && task.getState().contains("currentLesson")) {
-                currentLessonList.add(task);
-            }
-        }
-        return currentLessonList;
-    }
-
-    public ArrayList<Task> getToGradeTaskList() {
-        ArrayList<Task> toGradeTaskList = new ArrayList<>();
-        Iterator<Task> iterator = taskArrayList.iterator();
-        while (iterator.hasNext()) {
-            Task task = iterator.next();
-            if(task.showInParentList() && task.getState().contains("isCompleted")) {
-                toGradeTaskList.add(task);
-            }
-        }
-        return toGradeTaskList;
     }
 
     public ArrayList<Task> getStudentTaskArrayList() {
