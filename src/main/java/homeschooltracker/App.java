@@ -1,3 +1,6 @@
+/*
+ * (c) 2020 Alison Major. All rights reserved.
+ */
 package homeschooltracker;
 
 import homeschooltracker.content.Subject;
@@ -7,7 +10,16 @@ import homeschooltracker.gui.FamilyGUI;
 import homeschooltracker.users.Parent;
 import homeschooltracker.users.Student;
 
+/**
+ * This is a class for running the homeschool tracker application.
+ * @author Alison Major
+ */
 public class App {
+
+    /**
+     * The main method is where the GUI is generated and pre-loaded with some data in the Parent and Student instances.
+     * @param args
+     */
     public static void main(String[] args) {
         // Build parent
         Parent parent = new Parent("Anya");
@@ -17,6 +29,11 @@ public class App {
         new FamilyGUI(parent);
     }
 
+    /**
+     * This is a static method that initializes data for a parent by adding students. To the students, we add subjects
+     * with lessons and materials.
+     * @param parent
+     */
     private static void initializeData(Parent parent) {
         // Build students
         Student student = new Student("Eustace");
