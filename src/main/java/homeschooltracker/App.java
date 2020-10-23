@@ -11,13 +11,13 @@ public class App {
     public static void main(String[] args) {
         // Build parent
         Parent parent = new Parent("Anya");
-        initializeDate(parent);
+        initializeData(parent);
 
         // Build GUI
         new FamilyGUI(parent);
     }
 
-    private static void initializeDate(Parent parent) {
+    private static void initializeData(Parent parent) {
         // Build students
         Student student = new Student("Eustace");
         Student student2 = new Student("Gwendolyn");
