@@ -3,13 +3,24 @@ package homeschooltracker;
 import homeschooltracker.content.Subject;
 import homeschooltracker.content.SubjectFactory;
 import homeschooltracker.content.Task;
+import homeschooltracker.gui.FamilyGUI;
 import homeschooltracker.users.Parent;
 import homeschooltracker.users.Student;
 
 public class App {
     public static void main(String[] args) {
+        // Build parent
         Parent parent = new Parent("Anya");
+        initializeData(parent);
+
+        // Build GUI
+        new FamilyGUI(parent);
+    }
+
+    private static void initializeData(Parent parent) {
+        // Build students
         Student student = new Student("Eustace");
+        Student student2 = new Student("Gwendolyn");
 
         // Create the subjects using the Factory
         SubjectFactory subjectFactory = new SubjectFactory();
@@ -26,6 +37,7 @@ public class App {
 
         // Add Student to Parent
         parent.add(student);
+        parent.add(student2);
 
         // Add Subject to Student
         student.add(subject0);
@@ -34,48 +46,31 @@ public class App {
         student.add(subject3);
         student.add(subject4);
         student.add(subject5);
-        student.add(subject6);
-        student.add(subject7);
-        student.add(subject8);
-        student.add(subject9);
+
+        student2.add(subject6);
+        student2.add(subject7);
+        student2.add(subject8);
+        student2.add(subject9);
 
         // Grade a Lesson
-        Task bibleLesson = student.getChild(0).getChild(0);
-        System.out.println("Set Bible lesson as GRADED. " + bibleLesson.getName());
-        bibleLesson.setGraded();
+        Task lesson1 = student.getChild(0).getChild(0);
+        System.out.println("Set student 1 lesson as GRADED. " + lesson1.getName());
+        lesson1.setGraded();
 
         // Complete a Lesson
-        Task mathLesson = student.getChild(5).getChild(0);
-        System.out.println("Set seatwork lesson as COMPLETED. " + mathLesson.getName());
-        mathLesson.setCompleted();
+        Task lesson2 = student.getChild(1).getChild(0);
+        System.out.println("Set student 1 lesson as COMPLETED. " + lesson2.getName());
+        lesson2.setCompleted();
 
         // Prepare a Lesson
-        Task readingLesson = student.getChild(2).getChild(0);
-        System.out.println("Set reading lesson as PREPARED. " + readingLesson.getName());
-        readingLesson.setPrepared();
+        Task lesson3 = student.getChild(2).getChild(0);
+        System.out.println("Set student 1 lesson as PREPARED. " + lesson3.getName());
+        lesson3.setPrepared();
 
         // Prepare a Lesson
-        Task phonicsLesson = student.getChild(3).getChild(0);
-        System.out.println("Set phonics lesson as PREPARED. " + phonicsLesson.getName());
-        phonicsLesson.setPrepared();
-
-        // Prepare parts of a Lesson
-        Task seatworkLesson = student.getChild(1).getChild(0);
-        System.out.println("Set some seatwork materials as PREPARED. " + seatworkLesson.getName());
-        seatworkLesson.setReadyToPrepare();
-        System.out.println("... Seatwork State: " + seatworkLesson.getStateDescription());
-        seatworkLesson.setChildPrepared(0);
-        System.out.println("... Seatwork Task 0 State: " + seatworkLesson.getChild(0).getStateDescription());
-        seatworkLesson.setChildPrepared(2);
-        System.out.println("... Seatwork Task 2 State: " + seatworkLesson.getChild(2).getStateDescription());
-
-        // Prepare ALL parts of a Lesson
-        Task writingLesson = student.getChild(4).getChild(0);
-        writingLesson.setReadyToPrepare();
-        System.out.println("Set some writing materials as PREPARED. " + writingLesson.getName());
-        writingLesson.setChildPrepared(0);
-        writingLesson.setChildPrepared(1);
-        System.out.println("... Writing State: " + writingLesson.getStateDescription());
+        Task lesson4 = student2.getChild(0).getChild(0);
+        System.out.println("Set student 2 lesson as PREPARED. " + lesson4.getName());
+        lesson4.setPrepared();
 
         // ***** Print Information *****
 
@@ -86,15 +81,14 @@ public class App {
         Student myStudent = parent.getChild(0);
         myStudent.print();
 
+        // Print Child
+        Student myStudent2 = parent.getChild(1);
+        myStudent2.print();
+
         // Print Task Lists
         parent.printTasks();
         System.out.println("\n");
         student.printTasks();
-
-        // Print Subjects in various states
-//        subject0.print();
-//        subject1.print();
-//        subject2.print();
-//        subject3.print();
+        student2.printTasks();
     }
 }

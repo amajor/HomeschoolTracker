@@ -25,43 +25,11 @@ public abstract class Task {
         taskArrayList.add(task);
     }
 
-    public void remove(Task task) {
-        throw new UnsupportedOperationException();
-    }
-
     public Task getChild(int position) {
         if(taskArrayList.size() == 0) {
             throw new UnsupportedOperationException();
         }
         return taskArrayList.get(position);
-    }
-
-    public ArrayList<Task> getTaskArrayList() {
-        return taskArrayList;
-    }
-
-    public ArrayList<Task> getParentTaskArrayList() {
-        ArrayList<Task> parentTaskArrayList = new ArrayList<>();
-        Iterator<Task> iterator = taskArrayList.iterator();
-        while (iterator.hasNext()) {
-            Task task = iterator.next();
-            if(task.showInParentList()) {
-                parentTaskArrayList.add(task);
-            }
-        }
-        return parentTaskArrayList;
-    }
-
-    public ArrayList<Task> getStudentTaskArrayList() {
-        ArrayList<Task> studentTaskArrayList = new ArrayList<>();
-        Iterator<Task> iterator = taskArrayList.iterator();
-        while (iterator.hasNext()) {
-            Task task = iterator.next();
-            if(task.showInStudentList()) {
-                studentTaskArrayList.add(task);
-            }
-        }
-        return studentTaskArrayList;
     }
 
     public String getName() {
@@ -96,20 +64,12 @@ public abstract class Task {
         return null;
     }
 
-    public void setReadyToPrepare() {
-        setState(currentToPrepareState);
-    };
-
     public void setPrepared() {
         if(getCurrentTask() == null) {
             setState(currentLessonState);
         } else {
             setState(isPreparedState);
         }
-    }
-
-    public void setChildPrepared(int position) {
-        throw new UnsupportedOperationException();
     }
 
     public boolean isCurrent() {
@@ -134,6 +94,10 @@ public abstract class Task {
 
     public String getStateDescription() {
         return state.getStateDescription();
+    }
+
+    public String getState() {
+        return state.getState();
     }
 
     public boolean showInParentList() {
@@ -184,5 +148,45 @@ public abstract class Task {
 
     public void printStudentTasks() {
         printTasks(getStudentTaskArrayList());
+    }
+
+
+    public ArrayList<Task> getTaskArrayList() {
+        return taskArrayList;
+    }
+
+    public ArrayList<Task> getTasks(ArrayList<Task> taskArrayList) {
+        ArrayList<Task> taskList = new ArrayList<>();
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            taskList.add(task);
+            taskList.addAll(getTasks(task.getTaskArrayList()));
+        }
+        return taskList;
+    }
+
+    public ArrayList<Task> getParentTaskArrayList() {
+        ArrayList<Task> parentTaskArrayList = new ArrayList<>();
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            if(task.showInParentList()) {
+                parentTaskArrayList.add(task);
+            }
+        }
+        return parentTaskArrayList;
+    }
+
+    public ArrayList<Task> getStudentTaskArrayList() {
+        ArrayList<Task> studentTaskArrayList = new ArrayList<>();
+        Iterator<Task> iterator = taskArrayList.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            if(task.showInStudentList()) {
+                studentTaskArrayList.add(task);
+            }
+        }
+        return studentTaskArrayList;
     }
 }

@@ -18,7 +18,7 @@ public class Material extends Task {
     }
 
     public String getName() {
-        return "-- " + name;
+        return name;
     }
 
     public void print() {

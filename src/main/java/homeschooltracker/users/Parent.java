@@ -26,6 +26,10 @@ public class Parent {
         return studentArrayList.get(position);
     }
 
+    public int getNumberOfChildren() {
+        return this.studentArrayList.size();
+    }
+
     public void print() {
         System.out.println("\nParent: " + getName());
     }
@@ -46,5 +50,9 @@ public class Parent {
                 (subject) -> subject.printParentTasks()
             );
         }
+    }
+
+    public ArrayList<Student> getChildren() {
+        return studentArrayList;
     }
 }
