@@ -7,6 +7,7 @@ import homeschooltracker.content.Task;
 import homeschooltracker.users.Student;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,16 +33,20 @@ public class StudentPanel extends JPanel {
         this.familyGUI = familyGUI;
 
         // Build the Panel
-        this.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        this.setLayout(new GridLayout(0, 1));
+        Border bevelBorder = BorderFactory.createLoweredBevelBorder();
+        Border spaceBorder = BorderFactory.createEmptyBorder(30, 30,30,30);
+        this.setBorder(BorderFactory.createCompoundBorder(bevelBorder, spaceBorder));
+        this.setLayout(new GridLayout(30, 1));
         // this.setLayout(new FlowLayout(4, 4, 4));
 
         // Add label
-        this.add(new JLabel("Student Panel: " + student.getName()));
+        JLabel title = new JLabel("Student Panel: " + student.getName());
+        title.setFont(new Font("Helvetica", Font.BOLD, 24));
+        this.add(title);
 
         // Add buttons of the tasks
         ArrayList<Task> tasks = getTasks(student, "currentLesson");
-        addButtons(tasks);
+        addButtons(student.getName(), tasks);
     }
 
     /**
@@ -89,20 +94,29 @@ public class StudentPanel extends JPanel {
      * @see homeschooltracker.content.taskState.IsCompletedState
      * @param tasks The tasks to create buttons for. Clicking the button will set the state to {@code IsCompletedState}.
      */
-    public void addButtons(ArrayList<Task> tasks) {
-        Iterator<Task> taskIterator = tasks.iterator();
-        while (taskIterator.hasNext()) {
-            Task task = taskIterator.next();
-            // Add Button for each task
-            JButtonStudentToCompleteTask specialButton = new JButtonStudentToCompleteTask(task.getName(), task);
-            this.add(specialButton);
-            specialButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent event) {
-                    JButtonStudentToCompleteTask tmpButton = (JButtonStudentToCompleteTask) event.getSource();
-                    tmpButton.execute();
-                    familyGUI.drawPanels();
-                }
-            });
+    public void addButtons(String studentName, ArrayList<Task> tasks) {
+        if (tasks.size() > 0) {
+            Iterator<Task> taskIterator = tasks.iterator();
+            while (taskIterator.hasNext()) {
+                Task task = taskIterator.next();
+                // Add Button for each task
+                JButtonStudentToCompleteTask specialButton = new JButtonStudentToCompleteTask(task.getName(), task);
+                this.add(specialButton);
+                specialButton.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent event) {
+                        JButtonStudentToCompleteTask tmpButton = (JButtonStudentToCompleteTask) event.getSource();
+                        tmpButton.execute();
+                        familyGUI.drawPanels();
+                    }
+                });
+            }
+        } else {
+            // Add label
+            JLabel label = new JLabel("-- Great job,  " + studentName + "! Done for today! --");
+            label.setFont(new Font("Helvetica", Font.PLAIN, 16));
+            label.setForeground(Color.RED);
+            this.add(label);
         }
+
     }
 }

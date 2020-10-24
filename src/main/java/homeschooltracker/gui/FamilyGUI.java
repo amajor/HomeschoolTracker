@@ -31,7 +31,7 @@ public class FamilyGUI {
         // Build the frame
         frame = new JFrame();
         frame.setTitle("Family Tasks");
-        frame.setSize(700,1000);
+        frame.setSize(1500,1000);
         frame.setLocation(100, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
