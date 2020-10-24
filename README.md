@@ -20,4 +20,4 @@ Additionally, the application will manage students and which subjects each stude
   * [Design Patterns](https://github.com/amajor/HomeschoolTracker/wiki/Patterns)
   * [Application UML](https://github.com/amajor/HomeschoolTracker/wiki/Patterns#application)
 * [Java Documentation](https://amajor.github.io/HomeschoolTracker/)
-* [Project Reflection (pdf)](https://github.com/amajor/HomeschoolTracker/wiki/docs/Week8_ProjectReflection_AlisonMajor.pdf)
+* [Project Reflection (pdf)](https://github.com/amajor/HomeschoolTracker/wiki/docs/Week8_ProjectReflection_HomeschoolTracker.pdf)
