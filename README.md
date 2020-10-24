@@ -13,6 +13,8 @@ whether or not they have been completed.
 
 Additionally, the application will manage students and which subjects each student has.
 
+![HomeschoolTracker](https://github.com/amajor/HomeschoolTracker/wiki/images/InitializedApplication.png)
+
 ## Planning, Development, & Documentation
 
 * [Kanban Board](https://github.com/amajor/HomeschoolTracker/projects/2)
